@@ -1,0 +1,127 @@
+.all-box .box-1{
+
+    margin: 0;
+    background-color: aquamarine;
+    align-items: center;
+    height: 500px;
+    background:url("/wp-content/foto/foto1-box1.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: 0% 50%;
+}
+
+.all-box .box-1 .text-box-1{
+    
+    
+    background-color: transparent;
+    padding: 0px 20px;
+    width: 65%;
+    height: 350px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.all-box .box-1 h1{
+
+    margin: 10;
+    color:white;
+    text-shadow: 3px 5px rgb(67, 50, 0);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 55px;
+}
+
+.all-box .box-1 h2{
+
+    margin: 10;
+    color: white;
+    text-shadow: 3px 3px rgb(67, 50, 0);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+
+.all-box .box-1 span{
+    color: orange;
+}
+
+.all-box .box-1 .btn-box1{
+
+    margin: 10;
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.all-box .box-1 button{
+    
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 2px 2px rgb(67, 50, 0);
+    width: 250px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: 0.3s linear;
+}
+
+.all-box .box-1 button:hover{
+
+    text-shadow: 0 0;
+    color: black;
+    background-color: white;
+}
+
+.all-box .box-1 button:active{
+
+    font-size: 14px;
+    color: orange;
+}
+
+@media screen and (max-width:540px){
+
+    .all-box .box-1 h1{
+
+        font-size: 30px;
+    }
+
+    .all-box .box-1 h2{
+        font-size: 18px;
+    }
+
+    .all-box .box-1{
+
+        background-position: 40% 0%;
+    }
+
+    .all-box .box-1 button{
+        width: 200px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:280px) {
+
+    .all-box .box-1 .text-box-1{
+        padding: 0px 10px;
+    }
+
+
+
+    .all-box .box-1 h1{
+
+        font-size: 24px;
+    }
+
+    .all-box .box-1 h2{
+
+        font-size: 16px;
+    }
+
+    .all-box .box-1 button{
+        width: 180px;
+    }
+}
