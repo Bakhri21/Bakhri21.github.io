@@ -49,12 +49,7 @@
 @media screen and (max-width:420px) {
  
     .all-box .Sub-judul h1{
-        font-size: 25px;
-    }
-
-    .all-box .Sub-judul{
-
-        height: 3%;
+        font-size: 20px;
     }
 
 }
