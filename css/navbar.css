@@ -141,8 +141,40 @@ html{
 
 }
 
+@media screen and (max-width:820px) {
+
+    .Navbar h1{
+        font-size: 18px;
+    }
+
+    .Navbar button{
+
+        width: 80%;
+        font-size: 11px;
+    }
+
+    .Navbar .Menu{
+        width: 300px;
+        
+    }
+
+    .Navbar .a{
+        
+        font-size: 12px;
+    }
+
+}
+
 @media screen and (max-width:540px) {
     
+    .Navbar .Menu{
+        display: none;
+    }
+
+    .Navbar button{
+        width: 100%;
+    }
+
     .Navbar h1{
         font-size: 20px;
     }
