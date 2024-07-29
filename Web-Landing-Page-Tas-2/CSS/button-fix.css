@@ -1,0 +1,10 @@
+.Button-fixed {
+
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 50px;
+    bottom: 1%;
+    
+}

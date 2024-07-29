@@ -1,0 +1,57 @@
+.All-Box .Box-7{
+    
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    background-color: transparent;
+}
+
+.All-Box .Box-7 h1{
+
+    letter-spacing: 5px;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.All-Box .Payment{
+
+
+    margin: 0;
+    background-color: transparent;
+    width: 200px;
+    height: 100px;
+    border: 2px solid black;
+    background-image: url("../Foto/bri-logo-white.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@media screen and (max-width:540px) {
+
+    .All-Box .Box-7 h1{
+        font-size: 30px;
+    }
+    
+    .All-Box .Payment{
+
+        width: 150px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width:280px) {
+
+    .All-Box .Box-7 h1{
+        font-size: 20px;
+    }
+
+    .All-Box .Payment{
+
+        width: 100px;
+        height: 60px;
+    }
+
+}

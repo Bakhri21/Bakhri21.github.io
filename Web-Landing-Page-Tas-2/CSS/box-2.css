@@ -1,0 +1,172 @@
+/* Box-2 */
+
+.All-Box .Box-2{
+    background-color: transparent;
+    justify-content:space-around ;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+.All-Box .Box-2 .text-box-2{
+
+    margin: 10px;
+    width: 600px;
+    height: 400px;
+    background-color: transparent;
+    border-radius: 30px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.All-Box .Box-2 h1{
+    margin: 0 0 15 0;
+    font-size: 50px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.All-Box .Box-2 p{
+    margin: 0;
+    font-size: 24px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: justify;
+}
+
+.All-Box .Box-2 .element2-box-2{
+    
+    
+    width: auto;
+    height: 400px;
+    border-radius: 30px;
+}
+
+.All-Box .Box-2 img{
+
+    border-radius: 30px;
+}
+
+
+
+@media screen and (max-width:920px) {
+
+    .All-Box .Box-2 h1{
+        font-size: 40px;
+    }
+
+    .All-Box .Box-2 p{
+        font-size: 20px;
+    }
+
+    .All-Box .Box-2 .element2-box-2{
+        
+        width: auto;
+        height: 300px;
+        margin: 10px;
+     
+    }
+
+    
+}
+
+@media screen and (max-width:540px) {
+
+    .All-Box .Box-2{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .All-Box .Box-2 .text-box-2{
+
+        width: auto;
+        height: 120px;
+    }
+
+    .All-Box .Box-2 h1{
+        font-size: 30px;
+    }
+
+    .All-Box .Box-2 p{
+        font-size: 18px;
+    }
+
+    .All-Box .Box-2 .element2-box-2{
+
+        margin: 0 0 10 0;
+        width: 400px;
+        height: 300px;
+    }
+
+    .All-Box .Box-2 img{
+        width: 400px;
+        height: auto;
+    }
+
+    
+
+
+
+}
+
+@media screen and (max-width:420px){
+
+    .All-Box .Box-2 .text-box-2{
+
+        width: auto;
+        height: 100px;
+    }
+
+    .All-Box .Box-2 h1{
+        font-size: 25px;
+    }
+
+    .All-Box .Box-2 p{
+        font-size: 14px;
+    }
+
+    .All-Box .Box-2 .element2-box-2{
+
+        margin: 0 0 10 0;
+        width: 300px;
+        height: 300px;
+    }
+
+    .All-Box .Box-2 img{
+        width: 300px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width:290px) {
+
+    .All-Box .Box-2 .text-box-2{
+
+        width: auto;
+        height: 200px;
+    }
+
+    .All-Box .Box-2 h1{
+        font-size: 35px;
+    }
+
+    .All-Box .Box-2 p{
+        font-size: 18px;
+    }
+
+    .All-Box .Box-2 .element2-box-2{
+
+        margin: 0 0 10 0;
+        width: 200px;
+        height: 200px;
+    }
+
+    .All-Box .Box-2 img{
+        width: 200px;
+        height: 200;
+    }
+
+    
+}
+/* Box-2 */

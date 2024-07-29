@@ -1,0 +1,28 @@
+.Judul{
+
+    font-family: 'Alkatra', cursive;
+    margin: 0;
+    text-align: center;
+    color: orange;
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sub-judul{
+
+    font-family: 'Acme', sans-serif;
+    margin: 0;
+    text-align: center;
+    color: whitesmoke;
+    word-spacing: 7px;
+    letter-spacing: 4px;
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}

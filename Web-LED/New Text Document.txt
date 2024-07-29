@@ -1,0 +1,27 @@
+Size 55 Inch
+Model 551718HL
+Brand Panel LG / Samsung
+Resolution Full HD 1920*1080 Support 4K and more for combined video wall
+Pixel Pitch(W×H) 0.630×0.630 mm
+Dot Pitch(W×H) 0.210×0.630 mm
+Luminance 700 cd/m²
+Good View at Symmetry
+Response Speed 8 (Typ.)(G to G) ms
+Viewing Angle 178H / 178V (89/89/89/89) (Min.)(CR≥10)
+Operating Mode S-IPS, Normally Black, Transmissive
+Chromaticity Wx:0.279; Wy:0.292
+Support Color 1.06B (8-bit + Dithering)
+Gamut 72% NTSC (CIE1931)
+White Variation 1.11/1.25 (Typ./Max.)(9 points)
+Outline Size 1211.4(W)×682.2(H) mm
+Bezel Opening 1209.6(W)×680.4(H) mm
+Overall Depth 53.3 (Typ.) mm
+Form Shape Flat Rectangle Display
+Orientation Landscape / Portrait
+Aspect Ratio(W:H) 16 : 9
+Surface Antiglare (Haze 3%), Hard coating (2H)
+Refresh Rate 60Hz
+Reverse Scan No
+LED Power 211.6W (Typ.)
+Panel Weight 15.2KG
+Lifetime > 50.000 Hours (Min)

@@ -1,0 +1,50 @@
+
+.text-box{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    /* border: 1px solid white; */
+}
+
+.text-box p{
+
+    margin: 8px 0;
+    font-family: cursive;
+    font-size: 1.5vw;
+    color: rgb(197, 197, 197);
+    text-align: justify;
+}
+
+.text-box span{
+    color: orange;
+}
+
+.text-box .line{
+
+    transform: translate(-50%);
+    margin: 0;
+    width: 50%;
+    height: 0.1px;
+    background-color: aqua;
+    border: none;
+}
+
+.text-box .line-2{
+
+    transform: translate(50%);
+    margin: 0;
+    width: 50%;
+    height: 0.1px;
+    background-color: aqua;
+    border: none;
+}
+
+@media screen and (max-width:540px) {
+    
+    .text-box p{
+        font-size: 3vw;
+    }
+}

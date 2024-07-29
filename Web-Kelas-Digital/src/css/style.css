@@ -1,0 +1,458 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: whitesmoke;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-moz-scrollbar {
+  width: 10px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: whitesmoke;
+}
+
+::-moz-scrollbar-track {
+  background-color: transparent;
+}
+
+*::selection {
+  background-color: goldenrod;
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background-color: rgb(165, 165, 165);
+  background: radial-gradient(circle, #d4d4d6, #99b5c7);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh 0px 0px 0px;
+  padding: 10px;
+  width: 90%;
+  height: auto;
+  background-color: rgb(8, 113, 155);
+  border-radius: 10px;
+}
+
+header img {
+  width: 120px;
+  height: 100px;
+  padding: 10px 20px;
+}
+
+header div {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  width: 80%;
+}
+
+header div h1 {
+  font-family: "nunito";
+  font-size: 2rem;
+}
+
+header div p {
+  font-size: 1.2rem;
+  color: yellow;
+}
+
+@media screen and (max-width: 768px) {
+  header img {
+    width: 60px;
+    height: 60px;
+  }
+
+  header div h1 {
+    font-size: 1.3rem;
+  }
+  header div p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header img {
+    width: 30px;
+    height: 30px;
+  }
+
+  header div h1 {
+    font-size: 1rem;
+  }
+  header div p {
+    font-size: 0.8rem;
+  }
+}
+
+main {
+  margin: 3vh 0px;
+  width: 91%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+main .menu-sidebar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  height: 80vh;
+  padding: 30px 3px;
+  background-color: rgb(228, 228, 228);
+  border-radius: 10px;
+  gap: 2rem;
+  box-shadow: 0px 0px 3px 0.5px rgb(196, 196, 196);
+}
+
+main .menu-sidebar button {
+  cursor: pointer;
+  width: 80%;
+  padding: 3px 10px;
+  background-color: transparent;
+  text-align: start;
+  border-radius: 10px;
+  font-family: poppins;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+main .menu-sidebar button i {
+  color: rgb(8, 113, 155);
+}
+
+main .menu-sidebar button span {
+  color: rgb(8, 113, 155);
+}
+
+main .menu-sidebar button:hover {
+  background-color: whitesmoke;
+}
+
+main .menu-sidebar button:focus {
+  background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  main .menu-sidebar button {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 93%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  main .menu-sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  main .menu-sidebar button {
+    text-align: center;
+  }
+
+  main .menu-sidebar button span {
+    display: none;
+  }
+}
+
+main .container-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 70%;
+  height: 80vh;
+  padding: 30px 3px;
+  background-color: rgb(250, 250, 250);
+  border-radius: 10px;
+  gap: 2rem;
+  box-shadow: 0px 0px 3px 0.5px rgb(250, 250, 250);
+  overflow: auto;
+}
+
+main .container-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+main .container-content::-webkit-scrollbar-thumb {
+  background-color: rgb(8, 113, 155);
+}
+
+main .container-content::-moz-scrollbar {
+  width: 7px;
+}
+
+main .container-content::-moz-scrollbar-thumb {
+  background-color: rgb(8, 113, 155);
+}
+
+@media screen and (max-width: 600px) {
+  main .container-content {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+}
+
+main .container-content .beranda {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  padding: 10px;
+  gap: 1rem;
+}
+
+main .container-content .beranda .about-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
+  width: 100%;
+  height: auto;
+}
+
+main .container-content .beranda .about-us h1 {
+  font-family: "Acme", sans-serif;
+  color: rgb(8, 113, 155);
+  letter-spacing: 1px;
+  font-size: 2rem;
+}
+
+main .container-content .beranda .about-us h1 i {
+  color: rgb(8, 113, 155);
+}
+
+main .container-content .beranda .about-us p {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+@media screen and (max-width: 768px) {
+  main .container-content .beranda .about-us h1 {
+    font-size: 1.3rem;
+  }
+
+  main .container-content .beranda .about-us p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .container-content .beranda .about-us h1 {
+    font-size: 1rem;
+  }
+
+  main .container-content .beranda .about-us p {
+    font-size: 0.8rem;
+  }
+}
+
+main .container-content .beranda .peluang-bisnis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+main .container-content .beranda .peluang-bisnis h1 {
+  font-family: "Acme", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: rgb(8, 113, 155);
+  width: 100%;
+}
+
+main .container-content .beranda .peluang-bisnis p {
+  font-size: 1.2rem;
+  color: grey;
+  width: 100%;
+}
+
+main .container-content .beranda .peluang-bisnis h1 i {
+  color: rgb(8, 113, 155);
+}
+
+@media screen and (max-width: 768px) {
+  main .container-content .beranda .peluang-bisnis h1 {
+    font-size: 1.3rem;
+  }
+
+  main .container-content .beranda .peluang-bisnis p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .container-content .beranda .peluang-bisnis h1 {
+    font-size: 1rem;
+  }
+
+  main .container-content .beranda .peluang-bisnis p {
+    font-size: 0.8rem;
+  }
+}
+
+main .container-content .beranda .peluang-bisnis div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 40%;
+  min-width: 200px;
+  height: auto;
+  flex: 1 1 auto;
+  background-color: gainsboro;
+  background: radial-gradient(circle, #303030, #272727);
+  padding: 3vh 0px;
+  border-radius: 5px;
+}
+
+main .container-content .beranda .peluang-bisnis div h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+  width: auto;
+  color: gold;
+}
+
+main .container-content .beranda .peluang-bisnis div i {
+  color: gold;
+}
+
+main .container-content .beranda .peluang-bisnis div button {
+  cursor: pointer;
+  font-family: calibri;
+  font-size: 1rem;
+  width: auto;
+  color: whitesmoke;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  main .container-content .beranda .peluang-bisnis div h1 {
+    font-size: 1rem;
+  }
+
+  main .container-content .beranda .peluang-bisnis div button {
+    font-size: 0.8rem;
+  }
+}
+
+main .container-content .beranda .s_k {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  /* background-color: black; */
+}
+
+main .container-content .beranda .s_k h1 {
+  font-family: "Acme", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: rgb(8, 113, 155);
+  width: 100%;
+}
+
+main .container-content .beranda .s_k h1 i {
+  color: rgb(8, 113, 155);
+}
+
+main .container-content .beranda .s_k ul {
+  width: calc(100% - 10px);
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #99b5c7;
+  background: radial-gradient(circle, #303030, #272727);
+  border-radius: 10px;
+}
+
+main .container-content .beranda .s_k ul li {
+  margin-left: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: whitesmoke;
+  width: auto;
+}
+
+main .container-content .beranda .s_k p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: grey;
+  width: 100%;
+  font-style: italic;
+  font-weight: 600;
+  /* background-color: #272727; */
+}
+
+main .container-content .beranda .s_k ul li sub {
+  font-size: 0.7rem;
+  color: wheat;
+  width: 100%;
+  text-decoration: line-through;
+}
+
+main .container-content .beranda .s_k ul li span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}

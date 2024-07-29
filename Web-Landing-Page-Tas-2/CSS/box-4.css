@@ -1,0 +1,132 @@
+.All-Box .Box-4{
+
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.All-Box .Box-4 h1{
+
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.All-Box .Box-4 h2{
+
+    text-align: center;
+    color: white;
+    font-family: monospace;
+}
+
+.All-Box .Box-4 .Div-fitur-1{
+
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Foto/sun.png");
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+    background-size:11% ;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(92, 13, 240);
+}
+
+.All-Box .Box-4 .Div-fitur-2{
+
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Foto/water-drop.png");
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+    background-size:15% ;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(92, 13, 240);
+}
+
+.All-Box .Box-4 .Div-fitur-3{
+
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Foto/star.png");
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+    background-size:10% ;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(92, 13, 240);
+}
+
+.All-Box .Box-4 .Div-fitur-4{
+
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Foto/smile.png");
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+    background-size:10% ;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(92, 13, 240);
+}
+
+@media screen and (max-width:420px) {
+ 
+    .All-Box .Box-4 h1{
+        font-size: 30px;
+    }
+
+ 
+    .All-Box .Box-4 .Div-fitur-1{
+        width: 330px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-2{
+        width: 330px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-3{
+        width: 330px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-4{
+        width: 330px;
+    }
+}
+
+@media screen and (max-width:290px) {
+
+    .All-Box .Box-4 h1{
+        font-size: 22px;
+    }
+
+    .All-Box .Box-4 h2{
+        font-size: 16px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-1{
+        width: 250px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-2{
+        width: 250px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-3{
+        width: 250px;
+    }
+
+    .All-Box .Box-4 .Div-fitur-4{
+        width: 250px;
+    }
+
+}

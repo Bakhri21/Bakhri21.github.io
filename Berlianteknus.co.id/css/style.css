@@ -1,0 +1,770 @@
+html {
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  background-color: rgb(18, 0, 31);
+  color: white;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  border: none;
+  outline: none;
+  font-display: swap;
+  transition: 0.5s ease-in-out;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: auto;
+  background-color: beige;
+  overflow: auto;
+}
+
+.hubungi-kami {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  font-size: 3rem;
+  background: linear-gradient(rgb(86, 197, 86), rgb(63, 109, 63));
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+
+.hubungi-kami:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+  .hubungi-kami {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}
+
+.hubungi-kami-telephone {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px;
+  left: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  font-size: 2rem;
+  background: linear-gradient(rgb(17, 137, 153), rgb(8, 85, 148));
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.hubungi-kami-telephone:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+  .hubungi-kami-telephone {
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+#scrollToTopBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 130px;
+  right: 50px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 9999;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+  background-color: grey;
+}
+
+@media screen and (max-width: 600px) {
+  #scrollToTopBtn {
+    width: 30px;
+    height: 30px;
+    bottom: 100px;
+    right: 40px;
+    padding: 5px;
+    font-size: 1rem;
+  }
+}
+
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  z-index: 9999;
+}
+
+header .header-column-1 {
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  background-color: white;
+}
+
+header .header-column-1 a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  color: black;
+}
+
+header .header-column-1 i {
+  color: tomato;
+}
+
+@media screen and (max-width: 600px) {
+  header .header-column-1 a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header .header-column-1 {
+    justify-content: center;
+  }
+
+  header .header-column-1 a {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  header .header-column-1 {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+}
+
+header .header-column-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: tomato;
+}
+
+header .header-column-2 div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+  height: 8vh;
+}
+
+header .header-column-2 .logo-text {
+  width: 50%;
+  justify-content: start;
+}
+
+header .header-column-2 .logo-text img {
+  width: 40px;
+  height: 40px;
+}
+
+header .header-column-2 .logo-text h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  color: whitesmoke;
+  text-align: center;
+  padding: 0px 20px;
+}
+
+header .header-column-2 .main-menu a {
+  font-family: Acme;
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
+header .header-column-2 .main-menu a:hover {
+  transform: scale(1.1);
+}
+
+header .header-column-2 .hamburger-menu {
+  cursor: pointer;
+  display: none;
+  width: 5%;
+  font-size: 2rem;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+#mainMenu.clicked {
+  transform: scaleY(1);
+}
+
+@media screen and (max-width: 768px) {
+  header .header-column-2 .main-menu {
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    width: 97%;
+    height: 40vh;
+    padding: 0px 10px;
+    top: 82px;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 99, 71, 0.5);
+  }
+
+  header .header-column-2 .main-menu a {
+    color: black;
+  }
+
+  header .header-column-2 .hamburger-menu {
+    display: flex;
+  }
+
+  header .header-column-2 .logo-text {
+    width: 80%;
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header .header-column-2 .main-menu {
+    top: 77px;
+  }
+
+  header .header-column-2 .main-menu a {
+    font-size: 1rem;
+  }
+
+  header .header-column-2 .hamburger-menu {
+    font-size: 1rem;
+  }
+
+  header .header-column-2 .logo-text h3 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  header .header-column-2 .main-menu {
+    top: 102px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  height: auto;
+}
+
+main .jumbotron {
+  background-color: white;
+  background-position: center;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: start;
+  justify-content: end;
+  flex-direction: column;
+  transition: background-image 1s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  main .jumbotron {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main .jumbotron {
+    background-size: 70%;
+  }
+}
+
+main .section-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 25px 10px;
+  background-color: transparent;
+}
+
+main .section-1 h1 {
+  font-family: Alkatra;
+  font-weight: 400;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 420px) {
+  main .section-1 h1 {
+    font-size: 1rem;
+  }
+}
+
+main .section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 90%;
+  height: auto;
+  padding: 25px 10px;
+  background-color: transparent;
+  gap: 20px;
+}
+
+main .section-2 h1 {
+  padding: 10px 10px;
+  font-family: Acme;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: start;
+  border-left: 5px solid tomato;
+  background-color: rgb(255, 99, 71, 0.5);
+}
+
+main .section-2 p {
+  padding: 20px 0px;
+  font-family: oxygen;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-align: start;
+}
+
+@media screen and (max-width: 420px) {
+  main .section-2 h1 {
+    font-size: 1.2rem;
+  }
+
+  main .section-2 p {
+    font-size: 1rem;
+  }
+}
+
+main .section-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  width: 90%;
+  height: auto;
+  padding: 45px 10px;
+  background-color: transparent;
+  gap: 60px;
+}
+
+main .section-3 h1 {
+  font-size: 1.5rem;
+  font-family: Acme;
+  width: 100%;
+  text-align: center;
+}
+
+main .section-3 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 auto;
+  gap: 40px;
+  width: 300px;
+  height: 40vh;
+  background: linear-gradient(rgba(236, 89, 43, 0.6), tomato);
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 3px 2px 10px 0px tomato;
+}
+
+main .section-3 div h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  font-size: 1.5rem;
+}
+
+main .section-3 div i {
+  color: gold;
+}
+
+main .section-3 div:nth-child(4) i {
+  color: lightblue;
+}
+
+main .section-3 div:nth-child(5) i {
+  color: silver;
+}
+
+main .section-3 div p {
+  font-family: oxygen;
+  font-size: 1.2rem;
+  color: white;
+}
+
+@media screen and (max-width: 420px) {
+  main .section-3 div h2 {
+    font-size: 1.2rem;
+  }
+
+  main .section-3 div p {
+    font-size: 1rem;
+  }
+}
+
+main .section-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  width: 90%;
+  height: auto;
+  padding: 45px 10px;
+  gap: 60px;
+}
+
+main .section-4 h1 {
+  font-family: Acme;
+  font-size: 1.5rem;
+  width: 100%;
+  background-color: goldenrod;
+  text-align: center;
+  color: whitesmoke;
+  letter-spacing: 2px;
+}
+
+main .section-4 a:hover {
+  opacity: 0.8;
+  transition: 0.1s ease;
+}
+
+main .section-4 div {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  max-width: 100%;
+  width: 194px;
+  height: 30vh;
+  background-color: gray;
+  box-shadow: 0px 0px 10px 0.5px black;
+}
+
+main .section-4 .produk-item-1 {
+  background: url("../img/nyy.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-2 {
+  background: url("../img/nym.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-3 {
+  background: url("../img/nyaf.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-4 {
+  background: url("../img/nymhy.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-5 {
+  background: url("../img/nyyhy.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-6 {
+  background: url("../img/nyfgby.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-7 {
+  background: url("../img/nyrgby.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-8 {
+  background: url("../img/frc.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-9 {
+  background: url("../img/n2xseby&n2xsy.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-10 {
+  background: url("../img/twisted-nfa2x.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-11 {
+  background: url("../img/aaac-s.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-12 {
+  background: url("../img/aaac.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-13 {
+  background: url("../img/acsr.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-14 {
+  background: url("../img/bcc.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-15 {
+  background: url("../img/ysly-jz.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 .produk-item-16 {
+  background: url("../img/liycy-oz.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main .section-4 div h2 {
+  font-size: 1.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  background-color: goldenrod;
+  text-align: center;
+  border-top-right-radius: 100%;
+  border-top-left-radius: 100%;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  main .section-4 {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .section-4 h1 {
+    font-size: 1.2rem;
+  }
+
+  main .section-4 div {
+    width: 170px;
+    height: 25vh;
+  }
+
+  main .section-4 div h2 {
+    font-size: 1rem;
+  }
+}
+
+main .section-9 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  width: 90%;
+  height: auto;
+  padding: 45px 10px;
+  background-color: transparent;
+  gap: 60px;
+}
+
+main .section-9 h1 {
+  font-size: 1.5rem;
+  font-family: Acme;
+  width: 100%;
+  text-align: center;
+}
+
+main .section-9 p {
+  font-family: oxygen;
+  font-size: 1.2rem;
+  color: black;
+}
+
+@media screen and (max-width: 420px) {
+  main .section-9 h1 {
+    font-size: 1.2rem;
+  }
+
+  main .section-9 p {
+    font-size: 1rem;
+  }
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: auto;
+  padding: 40px 0px;
+  background-color: rgb(51, 51, 51);
+  gap: 30px;
+}
+
+footer div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  width: 500px;
+  flex: 1 auto;
+  height: 35vh;
+  gap: 20px;
+  padding: 30px;
+}
+
+footer .foot-item-1 {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 10vh;
+}
+
+footer .foot-item-1 img {
+  width: 60px;
+  height: 60px;
+}
+
+footer .foot-item-1 p {
+  font-family: Oxygen;
+  font-size: 1.2rem;
+  color: white;
+}
+
+@media screen and (max-width: 420px) {
+  footer .foot-item-1 img {
+    width: 40px;
+    height: 40px;
+  }
+
+  footer .foot-item-1 p {
+    font-size: 1rem;
+  }
+}
+
+footer .foot-item-2 {
+  justify-content: start;
+}
+
+footer .foot-item-2 h1 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer .foot-item-2 p {
+  font-size: 1.2rem;
+  color: white;
+}
+
+footer span {
+  width: 90%;
+  height: 1px;
+  background-color: whitesmoke;
+}
+
+footer .copyright {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  width: 80%;
+}
+
+@media screen and (max-width: 420px) {
+  footer .foot-item-2 h1 {
+    font-size: 1.2rem;
+  }
+
+  footer .foot-item-2 p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,273 @@
+
+
+.Intro{
+    
+    margin: 0;
+    margin-bottom: 0;
+    position: relative;
+    min-width: 100%;
+    height: 77%;
+    background-color: rgba(3, 33, 58, 0.257);
+    background-image: url("Foto/MV_02.png");
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+}
+
+.Intro h1{
+
+    margin-top: 0;
+    margin-left: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    color: white;
+    font-size: 50px;
+    
+}
+
+.Intro p{
+
+    margin-left: 10px;
+    color: rgb(225, 236, 9);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+}
+
+.Intro h3{
+    margin-left: 10px;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+
+}
+
+.Intro button{
+
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 250px;
+    height: 60px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.Intro button:hover{
+    background-color: white;
+    color: black;
+    
+}
+
+
+/* Responsive Handphone & Tablet */
+@media screen and (max-width:1280px) {
+
+    
+    .Intro{
+        height: 85%;
+        background-size: 50%;
+        background-position: 100% 0%;
+    }
+    .Intro h1{
+        margin-left: 20px;
+        position: relative;
+        top: 50px;
+        font-size: 40px;
+    }
+    
+    .Intro p{
+        margin-left: 20px;
+        position: relative;
+        top: 50px;
+        font-size: 50px;
+    }
+    
+    .Intro h3{
+        margin-left: 20px;
+        position: relative;
+        top: 50px;
+        font-size: 30px;
+    
+    }
+
+    .Intro button{
+        
+        margin-left: 20px;
+        position: relative;
+        top: 70px;
+    }
+    
+}
+
+@media screen and (max-width:1050px) {
+
+    .Intro{
+        height: 80%;
+    }
+
+    .Intro h1{
+        font-size: 30px;
+    }
+    
+    .Intro p{
+    
+        
+        font-size: 40px;
+    }
+    
+    .Intro h3{
+
+        font-size: 20px;
+    
+    }   
+    
+}
+
+@media screen and (max-width:912px){
+    .Intro{
+        
+        background-size: cover;
+    }
+
+    .Intro h1{
+        font-size: 55px;
+        color: rgb(242, 152, 7);
+        text-shadow: 2px 0px 1px  rgb(47, 31, 10);
+    }
+
+    .Intro p{
+        font-size: 60px;
+        margin-bottom: 0;
+        text-shadow: 5px 0px 3px  rgb(0, 0, 0);
+    }
+
+    .Intro h3{
+        margin-top: 0;
+        color: rgb(225, 34, 34);
+        font-size: 35px;
+        text-shadow: 1px 0px 1px  rgb(248, 157, 157);
+    }
+
+    .Intro button{
+        top: 50px;
+        text-shadow: 0px 3px 5px  rgb(0, 0, 0);
+        transition: 1s;
+    }
+}
+
+@media screen and (max-width:890px) {
+    
+    .Intro{
+        background-size: 55% 100%;
+    }
+    
+
+    .Intro h1{
+        font-size: 25px;
+    }
+    
+    .Intro p{
+    
+        
+        font-size: 35px;
+    }
+    
+    .Intro h3{
+
+        font-size: 20px;
+    
+    }
+}
+
+
+
+@media screen and (max-width:800px) {
+    
+
+    .Intro{
+        background-size: 100%  ;
+        background-position: 0% 50%;
+    }
+
+    .Intro h1{
+        font-size: 35px;
+        color: rgb(242, 152, 7);
+        /* box-shadow: 0px 0px 5px 5px black; */
+        text-shadow: 2px 0px 1px  rgb(47, 31, 10);
+    }
+
+    .Intro p{
+        margin-bottom: 0;
+        text-shadow: 5px 0px 3px  rgb(0, 0, 0);
+    }
+
+    .Intro h3{
+        margin-top: 0;
+        color: rgb(225, 34, 34);
+        font-size: 25px;
+        text-shadow: 1px 0px 1px  rgb(248, 157, 157);
+    }
+
+    .Intro button{
+        top: 0px;
+        text-shadow: 0px 3px 5px  rgb(0, 0, 0);
+        transition: 1s;
+    }
+
+    .Intro button:hover{
+        text-shadow: none;
+    }
+}
+
+@media screen and (max-width:415px){
+    .Intro{
+ 
+        height: 512px;
+    }
+
+    .Intro button{
+        top: 20px;
+    }
+}
+
+@media screen and (max-width:280px){
+
+    .Intro{
+        height: 60%;
+    }
+    .Intro h1{
+        margin-left: 10px;
+        position: relative;
+        top: 0px;
+        font-size: 30px;
+    }
+    
+    .Intro p{
+        margin-left: 10px;
+        position: relative;
+        top: 0px;
+        font-size: 25px;
+    }
+    
+    .Intro h3{
+        margin-left: 10px;
+        position: relative;
+        top: 0px;
+        font-size: 20px;
+    
+    }
+
+ 
+    .Intro button{
+        top: 0px;
+        width: 250px;
+        height: 60px;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+}

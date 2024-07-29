@@ -1,0 +1,156 @@
+.Alasan-line-2{
+
+    position: relative;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    transition: opacity 1.5s ease-out;
+    opacity: 0;
+    
+}
+
+.Alasan-line-2 div{
+
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width:300px;
+    height: 250px;
+    flex-grow: 1;
+    background-color: rgb(2, 25, 49);
+    border-radius: 30px  30px;
+    box-shadow: 0 0 4px 0.5px white;
+    
+    
+}
+
+.animate {
+    animation: slide-in 1s forwards;
+    opacity: 0;
+    
+  }
+  
+  @keyframes slide-in {
+    from {
+        
+        left: -100%;
+        opacity: 0;
+    }
+    to {
+
+        left: 0;
+        opacity: 1;
+    }
+  }
+
+
+@keyframes div-1 {
+
+    0%{
+    
+        left: -100%;
+    }
+    25%{
+        left: -75%;        
+
+    }
+    50%{
+        left: -50%;
+    }
+    75%{
+        left: -25%;
+    }
+    100%{
+        left: 0%;
+    }
+    
+
+    
+    
+}
+@keyframes div-2 {
+
+    0%{
+    
+        opacity: 0%;
+    }
+    25%{
+        opacity: 25%;
+
+    }
+    50%{
+        opacity: 50%;
+    }
+    75%{
+        opacity: 75%;
+    }
+    100%{
+        opacity: 100%;
+    }
+        
+}
+@keyframes div-3 {
+
+    0%{
+    
+        right:  -100%;
+    }
+    25%{
+        right:  -75%;
+
+    }
+    50%{
+        right:  -50%;
+    }
+    75%{
+        right:  -25%;
+    }
+    100%{
+        right:  0%;
+    }
+    
+}
+
+.Alasan-line-2 img{
+    
+    margin: 0;
+    width: auto;
+    height: 70px;
+    
+}
+
+.Alasan-line-2 h3{
+    
+    margin: 0;
+    font-family: monospace;
+    text-align: center;
+    font-size: 2rem;
+    color: orange;
+}
+
+.Alasan-line-2 p{
+    
+    margin: 0 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    color: wheat;
+
+}
+
+@media screen and (max-width:768px) {
+
+
+    .Alasan-line-2 div{
+        width: 180px;
+
+    }
+    
+}
+    

@@ -1,0 +1,31 @@
+# robots.txt for LED Nusantara
+
+# Block all web crawlers from accessing the entire site
+User-agent: *
+Disallow: /
+
+# Allow Googlebot to access all pages
+User-agent: Googlebot
+Disallow:
+
+# Block specific directories and files
+Disallow: /src/
+Disallow: /private/
+Disallow: /tmp/
+
+# Allow access to CSS and JavaScript files
+Allow: /src/css/*.css
+Allow: /src/js/*.js
+
+# Block access to specific file types
+User-agent: *
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.xls$
+
+# Block specific web crawlers
+User-agent: BadBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.berlianteknus.online/sitemap.xml

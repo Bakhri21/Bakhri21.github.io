@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Kontak</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h1 {
+      color: #1a237e;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-info li {
+      margin-bottom: 10px;
+    }
+
+    .contact-info li span {
+      display: inline-block;
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .map-container {
+      margin-top: 20px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      height: 400px;
+    }
+  </style>
+ 
+</head>
+<body>
+  <div class="container">
+    <h1>Kontak Kami</h1>
+    <ul class="contact-info">
+      <li><span>Nomor Telepon:</span> 081234567890</li>
+      <li><span>Instagram:</span> <a href="https://www.instagram.com/namainstagram/">@namainstagram</a></li>
+      <li><span>Email:</span> <a href="mailto:info@example.com">info@example.com</a></li>
+      <li><span>Website:</span> <a href="https://www.webdomain.com">www.webdomain.com</a></li>
+    </ul>
+    <div id="map" class="map-container"></div>
+  </div>
+
+   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
+      var mapOptions = {
+        center: { lat: -6.1753924, lng: 106.8271528 }, // Ganti dengan koordinat lokasi Anda
+        zoom: 14 // Ganti dengan tingkat zoom yang diinginkan
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: { lat: -6.1753924, lng: 106.8271528 }, // Ganti dengan koordinat lokasi Anda
+        map: map,
+        title: "Lokasi Kami" // Ganti dengan judul marker yang diinginkan
+      });
+    }
+  </script>
+</body>
+</html>

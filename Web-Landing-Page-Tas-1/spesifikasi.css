@@ -1,0 +1,283 @@
+.Spek{
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+}
+
+.Spek h1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+.Spek ul{
+    position: relative;
+    list-style-type: none;
+    text-align: center;
+}
+
+.Spek ul li{
+    
+    position: relative;
+    left: 3%;
+    margin: 0 10% 0 0;
+    display: inline;
+    
+}
+
+.Spek button{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 30px;
+    border: none;
+    border-radius: 50px;
+    width: 20%;
+    height: 12%;
+    background-color: aliceblue;
+}
+
+.Sp_black button{
+    
+
+    color: white;
+    border-radius: 0;
+    width: 25%;
+    height: 50%;
+    background-color: transparent;
+    text-align: left;
+    position: relative;
+    left: 5%;
+    margin-right: 5%;
+    display: inline;
+    
+}
+
+.Sp_pink button{
+
+    margin-top: 0;
+    color: white;
+    border-radius: 0;
+    width: 25%;
+    height: 50%;
+    background-color: transparent;
+    right: 5%;
+    text-align: left;
+    position: relative;
+    display: inline;
+    
+}
+
+@media screen and (max-width:1024px) {
+
+    .Spek h1{
+        text-align: center;
+    }
+    
+}
+
+
+@media screen and (max-width:920px){
+
+    .Spek{
+        height: 30%;
+    }
+    .Spek button{
+        width: 30%;
+        height: 5%;
+    }
+    .Spek ul li .mv1{
+
+        
+        position: relative;
+        font-size: 25px;
+        margin-bottom: 0;
+    }
+
+    .Sp_black button{
+        position: relative;
+        font-size: 30px;
+        margin-right: 0%;
+        width: 35%;
+        height: 25%;
+    }
+
+    .Sp_pink button{
+
+        position: relative;
+        right: 1%;
+        font-size: 30px;
+        margin-right: 1%;
+        width: 35%;
+        height: 25%;
+    }
+}
+
+@media screen and (max-width:820px){
+    
+    .Spek button{
+        
+        left: 0%;
+        width: 35%;
+        height: 7%;
+    }
+
+    .Spek ul li .mv1{
+        
+        font-size: 35px;
+    }
+
+    .Spek ul li .mv2{
+        font-size: 35px;
+    }
+
+    .Sp_black button{
+        width: 35%;
+        height: 25%;
+        font-size: 26px;
+    }
+
+    .Sp_pink button{
+        width: 35%;
+        height: 25%;
+        font-size: 26px;
+    }
+
+
+}
+
+@media screen and (max-width:768px){
+    
+
+    
+    .Sp_black button{
+        width: 39%;
+    }
+
+    .Sp_pink button{
+        width: 39%;
+    }
+
+}
+
+@media screen and (max-width:540px){
+ 
+ 
+    .Spek h1{
+        font-size: 25px;
+    }
+
+    .Spek ul li .mv1{
+
+        width: 39%;
+        font-size: 15px;
+    }
+
+    .Spek ul li .mv2{
+        width: 39%;
+        font-size: 25px;
+    }
+
+    
+
+    .Sp_black button{
+
+        font-size: 18px;
+        height: 25%;
+    }
+
+    .Sp_pink button{
+
+        font-size: 18px;
+        height: 25%;
+    }
+
+}
+
+@media screen and (max-width:415px){
+
+    .Spek{
+        height: 30%;
+    }
+    .Spek h1{
+        font-size: 25px;
+    }
+
+    .Spek ul li .mv1{
+        font-size: 14px;
+        height: 7%;
+    }
+
+    .Spek ul li .mv2{
+
+        height: 5%;
+        font-size: 20px;
+    }
+
+    .Sp_black button{
+
+
+        width: 37%;
+        font-size: 14px;
+        left: 0%;
+        height: 18%;
+    }
+
+    .Sp_pink button{
+
+        width: 37%;
+        font-size: 14px;
+        right: 0%;
+        height: 18%;
+    }
+
+
+
+}
+
+@media screen and (max-width:375px){
+ 
+    .Spek h1{
+        
+        font-size: 20px;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width:290px){
+
+
+    .Spek h1{
+
+        font-size: 20px;
+    }
+
+    .Spek button{
+        left: 0%;
+        right: 9%;
+    }
+
+    .Spek ul li .mv1{
+        left: 0%;
+        
+        font-size: 12px;
+    }
+
+    .Spek ul li .mv2{
+        
+        top: 190px;
+        font-size: 12px;
+    }
+
+    .Sp_black button{
+        font-size: 11px;
+        
+    }
+
+    .Sp_pink button{
+        font-size: 11px;
+    }
+
+}

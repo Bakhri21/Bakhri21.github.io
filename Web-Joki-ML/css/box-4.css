@@ -1,0 +1,92 @@
+.all-box .Box-4{
+
+    height: 700px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: transparent;
+}
+
+
+.all-box .Box-4 .sub-box-4{
+
+    margin: 10px;
+    width: 550px;
+    height: 450px;
+    background-color: transparent;
+    border: none;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    border-bottom: 1px solid cyan;
+    
+}
+
+
+.all-box .Box-4 .sub-box-4 img{
+
+
+    margin: 15;
+    width: 350px;
+    height: 250px;
+}
+
+.all-box .Box-4 .sub-box-4 h1{
+
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 45px;
+    color: white;
+}
+
+.all-box .Box-4 .sub-box-4 h2{
+
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+    
+}
+
+@media screen and (max-width:920px) {
+
+    .all-box .Box-4 .sub-box-4{
+ 
+        margin: 10px;
+        width: 400px;
+        height: 300px;
+    }
+
+    .all-box .Box-4 .sub-box-4 img{
+        margin: 5px;
+        width: 200px;
+        height: 120px;
+    }
+    
+}
+
+@media screen and (max-width:280px) {
+
+    .all-box .Box-4 .sub-box-4{
+ 
+        margin: 5px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .all-box .Box-4 .sub-box-4 img{
+        margin: 5px;
+        width: 150px;
+        height: 100px;
+    }
+
+    .all-box .Box-4 .sub-box-4 h1{
+
+        font-size: 25px;
+    }
+
+    .all-box .Box-4 .sub-box-4 h2{
+
+        font-size: 16px;
+    }
+}

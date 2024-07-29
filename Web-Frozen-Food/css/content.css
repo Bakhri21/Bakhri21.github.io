@@ -1,0 +1,13 @@
+.all-content{
+
+    
+    margin: 90px 0 20px 0;
+    /* margin-top: 90px; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    background-color: transparent;
+    /* border: 1px solid white; */
+    
+}

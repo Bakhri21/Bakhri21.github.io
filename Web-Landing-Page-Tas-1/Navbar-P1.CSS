@@ -1,0 +1,131 @@
+
+body{
+    background-color: black;
+    margin: 0;
+    /* pointer-events: none; */    
+}
+
+
+/* Background-1 */
+.Induk-1{
+    
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.888);
+
+}
+
+/* Navigasi Bar */
+.Navbar{
+
+    /* z-index: 1; */
+    min-width: 100%;
+    height: 10%;
+    background-color: whitesmoke;
+    margin: 0;
+    
+}
+
+.Navbar ul{
+    position: relative;
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+}
+
+.Navbar li{
+    display: inline;
+    margin: 0;
+}
+
+/* Logo-Al-anshar */
+.Logo{
+    min-width: 25%;
+    height: 90%;
+}
+
+.Nav-button{
+    margin-right: 5px;
+    pointer-events: all;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    left: 80%;
+    top: 15px;
+    color: rgb(193, 185, 185);
+    width: 14%;
+    height: 50%;
+    background-color: rgb(15, 20, 15);
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.Nav-button:hover{
+
+    color: white;
+}
+
+@media screen and (max-width:1200px){
+    
+    
+    
+    .Nav-button{
+        font-size: 12px;
+     
+    }
+}
+
+@media screen and (max-width:1000px){
+    .Nav-button{
+     
+        font-size: 12px;
+        left: 80%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .Nav-button{
+     
+        font-size: 13px;
+     
+    }
+}
+
+
+@media screen and (max-width:670px){
+
+    .Logo{
+ 
+        margin-top: 10px;
+        min-width: 5%;
+        height: 70%;
+    }
+
+    .Nav-button{
+        font-size: 10px;
+        left: 75%;
+    }
+}
+
+@media screen and (max-width:415px){
+    .Nav-button{
+        left: 50%;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width:375px){
+    .Nav-button{
+        width: 20%;
+        left: 60%;
+    }
+}
+
+@media screen and (max-width:280px){
+    .Nav-button{
+        width: 30%;
+        left: 45%;
+    }
+}

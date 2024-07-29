@@ -1,0 +1,89 @@
+.All-Box .Box-5{
+
+    height: 350px;
+    /* align-items: center; */
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: transparent;
+}
+
+.All-Box .Box-5 div{
+
+    margin: 10px;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    background-color: azure;
+}
+
+.All-Box .Box-5 .foto-1{
+
+    
+    background-image: url("../Foto/Tas-1.png");
+    background-repeat: no-repeat;
+    background-size:100% ;
+    background-position: 0% 50%;
+}
+
+.All-Box .Box-5 .foto-2{
+
+    background-image: url("../Foto/Tas-2.png");
+    background-repeat: no-repeat;
+    background-size:100% ;
+    background-position: 0% 50%;
+}
+
+.All-Box .Box-5 .foto-3{
+
+    background-image: url("../Foto/Tas-3.png");
+    background-repeat: no-repeat;
+    background-size:100% ;
+    background-position: 0% 50%;
+}
+
+.All-Box .Box-5 .foto-4{
+
+    background-image: url("../Foto/Tas-4.png");
+    background-repeat: no-repeat;
+    background-size:100% ;
+    background-position: 0% 50%;
+}
+
+@media screen and (max-width:1100px) {
+
+    .All-Box .Box-5 div{
+
+        width:200px ;
+        height:200px ;
+    }   
+    
+}
+
+@media screen and (max-width:900px) {
+    
+    .All-Box .Box-5 div{
+
+        width:150px ;
+        height:150px ;
+    }
+}
+
+@media screen and (max-width:540px) {
+
+    .All-Box .Box-5{
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:280px) {
+
+    .All-Box .Box-5 div{
+
+        
+        width: 120px;
+        height: 120px;
+    }
+}

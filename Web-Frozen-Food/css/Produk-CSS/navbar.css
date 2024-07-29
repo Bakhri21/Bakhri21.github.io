@@ -1,0 +1,273 @@
+html{
+    scroll-behavior: smooth;
+    
+}
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(1, 11, 22);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+}
+
+
+header nav{
+
+    backdrop-filter: blur(5px);
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    background-color: rgba(2, 25, 47, 0.752);
+    box-shadow: 0 1px 7px 0 white;
+    justify-content: space-between;
+    align-items: center;
+    animation: scroll-nav 1.5s ease-in-out;
+    z-index: 100000;
+    
+    
+    
+}
+
+nav div{
+
+    margin: 0 10px 0 10px;
+    display: flex;
+    height: 60px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+nav h1{
+
+    font-family: 'Alkatra', cursive;
+    font-size: 3rem;
+    filter: contrast(80%);
+    color: orange;
+    
+
+}
+
+nav h1:active{
+    opacity: 10%;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+nav .menu{
+
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+nav .menu div{
+
+    width: 100px;
+    height: 50%;
+    background-color: transparent;
+    font-family: 'Acme', sans-serif;
+    font-size: 0.8rem;
+    align-items: center;
+    flex-direction: column;
+    color: azure;
+    transition: 0.2s ease-out;
+}
+
+nav .menu div:active{
+    transform: scale(0.9);
+}
+
+nav .menu div h2{
+    margin: 0;
+}
+
+nav .menu a::after{
+    content:'';
+    display: block;
+    border-bottom: 0.1px solid white;
+    transform: scaleX(0);
+    transition: 0.3s linear;
+
+}
+
+nav .menu a:hover::after{
+    transform: scaleX(0.7);
+}
+
+nav .menu div:hover{
+
+    color: orange;
+    
+}
+
+nav button{
+
+    cursor: pointer;
+    margin-right: 10;
+    font-family: cursive;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    height: 35px;
+    border: none;
+    border-radius: 50px;
+    background-color: transparent;
+    transition: 0.5s ease;
+
+}
+
+nav button:hover{
+    color: greenyellow;
+}
+
+nav button:active{
+    transform: scale(0.9);
+}
+
+nav .Hamburger{
+    display: none;
+    height: 40px;
+    /* background-color: aqua; */
+    justify-content: space-evenly;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+nav .Hamburger:active{
+    
+    transform:scale(0.9) ;
+    
+}
+
+nav .Hamburger span{
+
+    margin: 0;
+    width: 40px;
+    height: 5px;
+    background-color: antiquewhite;
+}
+
+@media screen and (max-width:920px) {
+    
+    nav .menu{
+        width: 65%;
+    }
+
+}
+
+
+@media screen and (max-width:700px) {
+    
+    header nav{
+        z-index: 1000;
+    }
+    
+    nav .menu{
+
+        margin: 0;
+        position: absolute;
+        top: 105%;
+        right: -100%;
+        background-color: rgba(2, 25, 47, 0.752);
+        width: 30vh;
+        align-items: normal;
+        flex-direction: column;
+        height: 90vh;
+        transform: scaleX(0);
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 1px 7px 0 white;
+        animation: sidebar 0.2 ease;
+        
+    }
+
+
+    nav .menu div{
+        height: 80%;
+    }
+    
+
+    nav .menu.active{
+        
+
+        right: 0;
+        transform: scaleX(1);
+        
+    }
+
+    nav .menu a::after{
+        transform-origin: 0 0;
+    }
+
+    nav .menu a:hover::after{
+        
+        
+        transform: scaleX(0.6);
+    }
+
+    nav button{
+
+        display: none;
+
+    }
+
+    nav .Hamburger{
+
+        display: flex;
+        
+
+    }
+
+    nav .Hamburger span{
+
+        display: block;
+    }
+
+    
+}
+
+@keyframes scroll-nav {
+
+    0%{
+        /* transform: scaleY(0);   */
+        top: -100%;
+    }
+
+    20%{
+        /* transform: scaleY(0.2);   */
+        top: -80%;
+    }
+
+    40%{
+        /* transform: scaleY(0.4);   */
+        top: -60%;
+    }
+
+    60%{
+        /* transform: scaleY(0.6);   */
+        top: -40%;
+    }
+
+    80%{
+        /* transform: scaleY(0.8);   */
+        top: 20%;
+    }
+
+    100%{
+        /* transform: scaleY(1);   */
+        top: 0;
+    }
+    
+}

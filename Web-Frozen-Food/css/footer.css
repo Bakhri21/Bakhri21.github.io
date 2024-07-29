@@ -1,0 +1,137 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 10px 0px; */
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgb(2, 25, 49);
+  transform-origin: bottom;
+  animation: scroll-footer 0.7s linear;
+}
+
+footer section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer section:nth-child(2) {
+  width: 70%;
+  height: 30px;
+  background-color: transparent;
+  border-top: 0.1px solid rgba(255, 255, 255, 0.331);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+footer div {
+  height: 180px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: transparent;
+  color: white;
+}
+
+footer div span {
+  margin: 0 0 5px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+footer div:nth-child(1) p {
+  margin: 0 10px;
+  color: grey;
+}
+footer div:nth-child(3) p {
+  color: grey;
+  text-align: start;
+}
+
+footer div h3 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  margin: 0 0 20px 0;
+  font-size: 32px;
+}
+
+footer div p {
+  font-family: cursive;
+  font-size: 14px;
+  margin: 0;
+}
+
+footer div a {
+  text-decoration: none;
+  color: grey;
+  transition: 0.3s ease;
+}
+
+footer div a:hover {
+  color: orange;
+}
+
+footer section:nth-child(2) p {
+  margin: 0;
+  /* width: 100%;
+    height: 30px; */
+  /* bottom: 0; */
+  text-align: center;
+  /* background-color: rgb(3, 72, 111); */
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+@media screen and (max-width: 620px) {
+  footer section {
+    align-items: start;
+    justify-content: flex-start;
+  }
+
+  footer div iframe {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  footer section:nth-child(2) p {
+    font-size: 11px;
+  }
+}
+
+@keyframes scroll-footer {
+  0% {
+    transform: scaleY(0);
+  }
+
+  20% {
+    transform: scaleY(0.2);
+  }
+
+  40% {
+    transform: scaleY(0.4);
+  }
+
+  60% {
+    transform: scaleY(0.6);
+  }
+
+  80% {
+    transform: scaleY(0.8);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

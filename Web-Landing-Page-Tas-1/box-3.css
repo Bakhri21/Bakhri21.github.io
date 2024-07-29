@@ -1,0 +1,226 @@
+
+.box-3{
+    
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+}
+
+
+.box-3 h1{
+
+    letter-spacing: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
+.box-3 ul{
+
+
+    
+    list-style-type: none;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box-3 ul li{
+    margin: 10px;
+    display:flex ;
+    justify-content: center;
+    
+    
+}
+.box-3  .fitur-1{
+
+    
+    font-size: 16px;
+    text-align: center;
+    width: 270px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: azure;
+}
+
+.box-3  .fitur-2{
+
+    
+    font-size: 16px;
+    text-align: center;
+    width: 270px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: azure;
+}
+
+.box-3  .fitur-3{
+
+    
+    font-size: 16px;
+    text-align: center;
+    width: 270px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: azure;
+}
+
+.box-3  .fitur-4{
+
+    
+    font-size: 16px;
+    text-align: center;
+    width: 270px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: azure;
+}
+
+@media screen and (max-width:920px){
+    .box-3{
+        height: 30%;
+    }
+
+    .box-3 h1{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:540px) {
+
+
+
+    .box-3 h1{
+        font-size: 20px;
+    }
+    
+    .box-3 .fitur-1{
+        font-size: 9px;
+        width: 150px;
+        height: 40px;
+    }
+
+    .box-3 .fitur-2{
+        font-size: 11px;
+        width: 150px;
+        height: 40px;
+    }
+    .box-3 .fitur-3{
+        font-size: 11px;
+        width: 150px;
+        height: 40px;
+    }
+    .box-3 .fitur-4{
+        font-size: 11px;
+        width: 150px;
+        height: 40px;
+    }
+}
+
+
+@media screen and (max-width:440px) {
+
+    .box-3 h1{
+        font-size: 25px;
+    }
+    
+    .box-3  .fitur-1{
+
+    
+        font-size: 10px;
+        text-align: center;
+        width: 210px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: azure;
+    }
+    
+    .box-3  .fitur-2{
+    
+        
+        font-size: 10px;
+        text-align: center;
+        width: 210px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: azure;
+    }
+    
+    .box-3  .fitur-3{
+    
+        font-size: 10px;
+        text-align: center;
+        width: 210px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: azure;
+    }
+    
+    .box-3  .fitur-4{
+    
+        font-size: 10px;
+        text-align: center;
+        width: 210px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: azure;
+    }
+    
+}
+
+@media screen and (max-width:375px){
+
+    .box-3 .fitur-1{
+
+        font-size: 8px;
+        width: 140px;
+        height: 40px;
+    }
+
+    .box-3 .fitur-2{
+        width: 140px;
+        height: 40px;
+    }
+
+    .box-3 .fitur-3{
+        width: 140px;
+        height: 40px;
+    }
+
+    .box-3 .fitur-4{
+        width: 140px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width:290px) {
+
+    .box-3 h1{
+        font-size: 20px;
+    }
+    
+    .box-3 .fitur-1{
+        font-size: 9px;
+        width: 100px;
+        height: 50px;
+    }
+
+    .box-3 .fitur-2{
+        font-size: 9px;
+        width: 100px;
+        height: 50px;
+    }
+    .box-3 .fitur-3{
+        font-size: 9px;
+        width: 100px;
+        height: 50px;
+    }
+    .box-3 .fitur-4{
+        font-size: 9px;
+        width: 100px;
+        height: 50px;
+    }
+}

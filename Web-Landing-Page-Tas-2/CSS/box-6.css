@@ -1,0 +1,56 @@
+.All-Box .box-6{
+
+    height: 200px;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: transparent;
+
+}
+
+.All-Box .box-6 h1{
+
+    letter-spacing: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.All-Box .box-6 h2{
+
+    color: white;
+    font-family:cursive ;
+    font-size: 30px;
+}
+
+.All-Box .box-6 div{
+    /* width: 90px; */
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(92, 13, 240);
+
+}
+
+@media screen and (max-width:540px) {
+    
+    .All-Box .box-6 h1{
+        font-size: 30px
+    }
+
+
+}
+
+@media screen and (max-width:280px) {
+    
+    .All-Box .box-6 h1{
+        font-size: 20px
+    }
+
+    .All-Box .box-6 div{
+
+        
+        height: 25%;
+    }
+    
+}

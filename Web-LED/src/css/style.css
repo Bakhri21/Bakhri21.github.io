@@ -1,0 +1,935 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: darkslategray;
+  text-decoration: none;
+  list-style-type: none;
+  transition: 0.3s ease-out;
+  outline: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: rgb(231, 246, 255);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hubungi-kami {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  font-size: 3rem;
+  background: linear-gradient(rgb(86, 197, 86), rgb(63, 109, 63));
+  transition: 0.3s ease-in-out;
+}
+
+.hubungi-kami i {
+  color: white;
+}
+
+.hubungi-kami:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+  .hubungi-kami {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}
+
+.hubungi-kami-telephone {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 15px;
+  left: 30px;
+  bottom: 30px;
+  z-index: 9999;
+  font-size: 2rem;
+  background: linear-gradient(rgb(17, 137, 153), rgb(8, 85, 148));
+  transition: 0.3s ease-in-out;
+}
+
+.hubungi-kami-telephone i {
+  color: white;
+}
+
+.hubungi-kami-telephone:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 600px) {
+  .hubungi-kami-telephone {
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+#scrollToTopBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 130px;
+  right: 50px;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 9999;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+
+#scrollToTopBtn i {
+  color: white;
+}
+
+#scrollToTopBtn:hover {
+  background-color: grey;
+}
+
+@media screen and (max-width: 600px) {
+  #scrollToTopBtn {
+    width: 30px;
+    height: 30px;
+    bottom: 100px;
+    right: 40px;
+    padding: 5px;
+    font-size: 1rem;
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 0px 3px 5px 0px whitesmoke;
+  z-index: 9999;
+}
+
+header .contact-info {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: calc(100% - 4rem);
+  height: 30%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2.5rem;
+  background-color: rgb(110, 110, 110);
+}
+
+header .contact-info a {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+header .contact-info a i {
+  color: rgb(117, 224, 165);
+}
+
+header .contact-info a:nth-child(1) i {
+  transform: rotate(90deg);
+}
+
+header .hamburger-menu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 5%;
+  height: 90%;
+  font-size: 2.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+header .hamburger-menu:hover {
+  transform: scale(1.1);
+}
+
+header .hamburger-menu:active {
+  transform: scale(0.9);
+}
+
+header .menu #web_menu.hamburger-click {
+  transform: scaleY(1);
+}
+
+header .menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: calc(100% - 4rem);
+  height: 70%;
+  background-color: rgb(117, 224, 165);
+}
+
+header .menu .web-name {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+header .menu .web-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  gap: 1rem;
+}
+
+header .menu .web-menu button {
+  padding: 0.8rem 1.2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+header .menu .web-menu button span {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+header .menu .web-menu button i {
+  display: none;
+}
+
+header .menu .web-menu button:hover {
+  background-color: white;
+}
+
+header .menu .web-menu button:focus {
+  background-color: whitesmoke;
+}
+
+header .menu .web-menu button:active {
+  transform: scale(0.9);
+  background-color: whitesmoke;
+}
+
+@media screen and (max-width: 768px) {
+  header .contact-info a {
+    font-size: 0.8rem;
+  }
+
+  header .menu .web-name {
+    font-size: 1rem;
+  }
+
+  header .menu .web-menu button {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header .hamburger-menu {
+    display: flex;
+    font-size: 1.2rem;
+  }
+
+  header .menu .web-menu {
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    top: 15vh;
+    left: 0;
+    background-color: rgb(117, 224, 165, 0.5);
+    padding: 10px 0px;
+  }
+
+  header .menu .web-menu button {
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  header .contact-info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: calc(100% - 2rem);
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  header .contact-info a {
+    font-size: 0.7rem;
+  }
+
+  header .menu .web-name {
+    font-size: 1rem;
+  }
+
+  header .menu .hamburger-menu {
+    font-size: 1rem;
+  }
+
+  header .menu .web-menu button span {
+    display: none;
+  }
+
+  header .menu .web-menu button i {
+    display: block;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+}
+
+main .header-cover {
+  width: 100%;
+  height: 15vh;
+  background-color: transparent;
+}
+
+main .home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 4rem;
+  width: calc(100% - 8rem);
+  height: auto;
+  background-color: transparent;
+}
+
+main .home .about-us {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: safe;
+  gap: 1rem;
+  width: 100%;
+}
+
+main .home .about-us h1 {
+  font-family: "Kanit", serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+main .home .about-us p {
+  font-family: "Poppins", sans-serif;
+}
+
+main .home .vision {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 1rem;
+  width: 45%;
+  background-color: rgb(117, 224, 165);
+  border-radius: 10px;
+}
+
+main .home .vision h1 {
+  background-color: rgb(110, 110, 110);
+  color: whitesmoke;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+main .home .vision h1 i {
+  color: whitesmoke;
+}
+
+main .home .vision div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+main .home .vision div p {
+  font-family: "Cabin", sans-serif;
+}
+
+main .home .mision {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 1rem;
+  width: 45%;
+  background-color: rgb(117, 224, 165);
+  border-radius: 10px;
+}
+
+main .home .mision h1 {
+  background-color: rgb(110, 110, 110);
+  color: whitesmoke;
+  padding: 5px 20px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+main .home .mision h1 i {
+  color: whitesmoke;
+}
+
+main .home .mision div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+main .home .mision div p {
+  font-family: "Cabin", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  main .home .about-us h1 {
+    font-size: 1.5rem;
+  }
+
+  main .home .about-us p {
+    font-size: 0.8rem;
+  }
+
+  main .home .vision h1 {
+    font-size: 1rem;
+  }
+
+  main .home .vision p {
+    font-size: 0.8rem;
+  }
+
+  main .home .mision h1 {
+    font-size: 1rem;
+  }
+
+  main .home .mision p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .home {
+    width: calc(100% - 4rem);
+    padding: 5vh 2rem;
+  }
+}
+
+main .product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 4rem;
+  width: calc(100% - 8rem);
+  height: auto;
+  background-color: transparent;
+}
+
+main .product h1 {
+  width: 100%;
+  text-align: center;
+  font-family: "Kanit", serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+main .product .produk-detail {
+  cursor: pointer;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 1rem;
+  width: 30%;
+  min-width: 250px;
+  background-color: transparent;
+  box-shadow: 0px 1px 2px 0px black;
+  border-radius: 10px;
+}
+
+main .product .produk-detail:hover {
+  opacity: 0.8;
+}
+
+main .product .produk-detail img {
+  width: 100%;
+  height: 40vh;
+  border-radius: 10px;
+}
+
+main .product .produk-detail p {
+  font-family: "Akaya Kanadaka", system-ui;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  main .product h1 {
+    font-size: 1.5rem;
+  }
+
+  main .product .produk-detail img {
+    height: 20vh;
+  }
+
+  main .product .produk-detail p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  main .product .produk-detail {
+    min-width: 200px;
+  }
+
+  main .product .produk-detail p {
+    font-size: 1rem;
+  }
+}
+
+main .portfolio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 4rem;
+  width: calc(100% - 8rem);
+  height: auto;
+  background-color: transparent;
+}
+
+main .portfolio h1 {
+  width: 100%;
+  text-align: center;
+  font-family: "Kanit", serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+main .portfolio div {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  gap: 1rem;
+  width: 100%;
+}
+
+main .portfolio .container-slider-img {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: auto;
+  gap: 2rem;
+  width: 80%;
+  overflow-x: scroll;
+}
+
+main .portfolio .container-slider-img::-webkit-scrollbar {
+  height: 12px;
+}
+
+main .portfolio .container-slider-img::-webkit-scrollbar-thumb {
+  background-color: rgb(117, 224, 165);
+  border-radius: 2px;
+}
+
+main .portfolio .container-slider-img::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+main .portfolio .container-slider-img img {
+  width: 25%;
+  height: 45vh;
+}
+
+main .portfolio button {
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  z-index: 99;
+}
+
+main .portfolio button:hover {
+  background-color: rgb(117, 224, 165);
+}
+
+main .portfolio button:active {
+  transform: scale(0.9);
+}
+
+@media screen and (max-width: 768px) {
+  main .portfolio h1 {
+    font-size: 1.5rem;
+  }
+
+  main .portfolio .container-slider-img img {
+    height: 20vh;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .portfolio {
+    width: calc(100% - 4rem);
+    padding: 5vh 2rem;
+  }
+  main .portfolio div {
+    justify-content: center;
+  }
+
+  main .portfolio .container-slider-img img {
+    width: 100%;
+  }
+
+  main .portfolio button {
+    display: none;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  main .portfolio .container-slider-img img {
+    width: 100%;
+  }
+}
+
+main .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5vh 4rem;
+  padding-bottom: 20vh;
+  width: calc(100% - 8rem);
+  height: auto;
+  background-color: transparent;
+}
+
+main .contact h1 {
+  width: 100%;
+  text-align: center;
+  font-family: "Kanit", serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+main .contact .desc-contact {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+main .contact .contact-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1rem;
+  width: 100%;
+}
+
+main .contact .contact-information p {
+  font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  main .contact h1 {
+    font-size: 1.5rem;
+  }
+
+  main .contact p {
+    font-size: 0.8rem;
+  }
+
+  main .contact .contact-information p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main .contact {
+    width: calc(100% - 4rem);
+    padding: 5vh 2rem;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+  padding: 2vh 0px;
+  background-color: rgb(110, 110, 110);
+}
+
+footer p {
+  text-align: center;
+  font-family: "Calibri";
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Overlay Style */
+.overlay-container {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  z-index: 9999;
+  background-color: rgba(54, 54, 54, 0.9);
+}
+
+.overlay-container .close-btn {
+  display: flex;
+  justify-content: end;
+  width: calc(100% - 1rem);
+  height: auto;
+  padding: 1rem;
+}
+
+.overlay-container .close-btn button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  transform: rotate(45deg);
+  background-color: transparent;
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 100px;
+  box-shadow: 0px 0px 3px 1px white;
+}
+
+.overlay-container .close-btn button:hover {
+  box-shadow: none;
+}
+
+.overlay-container .close-btn button:active {
+  font-size: 1.5rem;
+}
+
+.overlay-container .produk-container {
+  padding: 1rem;
+  width: calc(80% - 1rem);
+  height: calc(80vh - 1rem);
+  background-color: rgb(231, 246, 255);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  gap: 0.5rem;
+}
+
+.overlay-container .produk-container .vertikal-line-gap {
+  margin: 2rem 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(110, 110, 110);
+}
+
+.overlay-container .produk-container img {
+  width: 30%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.overlay-container .produk-container h1 {
+  margin: 1rem 0px;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.overlay-container .produk-container .desc-produk {
+  padding: 1rem;
+  width: calc(100% - 1rem);
+  height: auto;
+  background-color: rgb(110, 110, 110);
+}
+
+.overlay-container .produk-container .desc-produk  img{
+  width: 60%;
+  height: 100vh;
+}
+
+.overlay-container .produk-container .desc-produk h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  color: rgb(231, 246, 255);
+}
+
+.overlay-container .produk-container .desc-produk i {
+  color: rgb(231, 246, 255);
+}
+
+.overlay-container .produk-container .desc-produk .vertikal-line {
+  margin: 0.5rem 0px;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
+
+.overlay-container .produk-container .desc-produk p {
+  margin-bottom: 0.5rem;
+  font-family: "Cabin", sans-serif;
+  color: gainsboro;
+}
+
+.overlay-container .produk-container .desc-produk i {
+  color: rgb(231, 246, 255);
+}
+
+main .overlay-container .produk-container::-webkit-scrollbar {
+  height: 12px;
+}
+
+main .overlay-container .produk-container::-webkit-scrollbar-thumb {
+  background-color: rgb(117, 224, 165);
+  border-radius: 10px;
+}
+
+main .overlay-container .produk-container::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+main .overlay-container .produk-container img {
+  width: 25%;
+  height: 45vh;
+}
+
+@media screen and (max-width:768px) {
+  .overlay-container .close-btn button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .overlay-container .produk-container img{
+    width: calc(50% - 0.3rem);
+    height: 250px;
+  }
+
+  .overlay-container .produk-container h1 {
+    font-size: 1.2rem;
+  }
+
+
+  .overlay-container .produk-container .desc-produk h2 {
+    font-size: 1rem;
+  }
+
+  .overlay-container .produk-container .desc-produk  img{
+    width: 60%;
+    height: 60vh;
+  }
+
+  .overlay-container .produk-container .desc-produk p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width:420px){
+  .overlay-container .produk-container img{
+    width: calc(100%);
+    height: 250px;
+  }
+
+  .overlay-container .produk-container .desc-produk  img{
+    width: 100%;
+  }
+}

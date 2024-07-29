@@ -1,0 +1,11 @@
+/* TEAM */
+Team : Web Inovasion
+Email : websiteinovasion@gmail.com
+Whatsapp : +62 858-6130-0684
+
+/* SITE */
+Last update : 2024-06-17
+Standards : HTML5, CSS3, JS
+
+/* THANKS */
+Thanks to all our visitors and supporters.
