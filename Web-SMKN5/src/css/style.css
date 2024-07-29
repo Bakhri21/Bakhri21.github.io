@@ -482,7 +482,7 @@ main .keahlian {
   height: auto;
   background-color: blueviolet;
   scroll-snap-align: center;
-  background: url("/src/img/keahlian.jpg");
+  background: url("./src/img/keahlian.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

@@ -28,9 +28,9 @@ function handleClickOutside(event) {
 // FUNGSI JUMBOTRON
 function initBackgroundChanger() {
   const backgrounds = [
-    'url("/src/img/jumbotron-1.jpg")',
-    'url("/src/img/jumbotron-2.jpg")',
-    'url("/src/img/jumbotron-3.jpg")',
+    'url("./src/img/jumbotron-1.jpg")',
+    'url("./src/img/jumbotron-2.jpg")',
+    'url("./src/img/jumbotron-3.jpg")',
   ];
   let currentBackgroundIndex = 0;
   const jumbotron = document.getElementById("jumbotron");
