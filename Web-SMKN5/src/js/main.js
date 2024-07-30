@@ -25,6 +25,14 @@ function handleClickOutside(event) {
   }
 }
 
+// FUNGSI BUTTON HEADER SUB MENU
+// BERANDA
+function beranda() {
+  window.location.href = "index.html";
+}
+document.getElementById('beranda').addEventListener("click", beranda);
+// BERITA
+
 // FUNGSI JUMBOTRON
 function initBackgroundChanger() {
   const backgrounds = [
