@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Hambatan & Arus Listrik</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+    <style>
+      .lamp {
+        transition: filter 0.3s ease-in-out;
+      }
+
+      @keyframes electron {
+        0% {
+          left: -10%;
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          left: 110%;
+          opacity: 0.2;
+        }
+      }
+
+      .electron {
+        position: absolute;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background-color: cyan;
+        border-radius: 9999px;
+        box-shadow: 0 0 6px cyan;
+        transform: translateY(-50%);
+        animation: electron 2s linear infinite;
+      }
+
+      /* Tooltip */
+      .group:hover .tooltip {
+        display: block;
+      }
+
+      .modal {
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        width: 80%;
+        max-width: 500px;
+        background: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* Button close modal */
+      button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
+    <!-- Header -->
+    <header class="text-center py-6 bg-gray-900 shadow-md">
+      <h1 class="text-3xl md:text-5xl font-bold text-cyan-400"><i class="fas fa-bolt mr-2"></i>Simulasi Hambatan & Arus Listrik</h1>
+      <p class="mt-2 text-sm md:text-base text-gray-300">Belajar Fisika Lebih Seru dengan Visual & Interaktif</p>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="max-w-4xl mx-auto px-4 py-10">
+      <h2 class="text-2xl font-semibold mb-4 text-cyan-300"><i class="fas fa-info-circle mr-2"></i>Penjelasan Singkat</h2>
+      <p class="mb-4 text-gray-200">
+        Dalam hukum Ohm, hubungan antara <strong>tegangan (V)</strong>, <strong>arus (I)</strong>, dan <strong>hambatan (R)</strong> dirumuskan sebagai:
+        <code class="bg-gray-700 px-2 py-1 rounded">V = I × R</code>. Website ini membantu kamu memahami konsep ini melalui penjelasan dan simulasi langsung.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-center mt-8">
+        <!-- Tegangan -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-200 relative group">
+          <i class="fas fa-bolt text-4xl text-yellow-400" data-tooltip="Tegangan (Volt): Dorongan listrik dari sumber energi untuk menggerakkan elektron dalam rangkaian."></i>
+          <h3 class="text-lg mt-4 font-semibold text-white">Tegangan (Volt)</h3>
+          <p class="text-sm text-gray-400 mt-2">Dorongan listrik dari sumber energi untuk menggerakkan elektron dalam rangkaian.</p>
+          <button onclick="openModal('teganganModal')" class="mt-4 text-sm text-yellow-300">Lihat Penjelasan Lengkap</button>
+
+          <!-- Tooltip -->
+          <div class="tooltip absolute hidden bg-gray-800 text-white text-xs px-2 py-1 rounded-md w-max top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
+            Penjelasan Tegangan
+          </div>
+        </div>
+
+        <!-- Arus -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-200 relative group">
+          <i
+            class="fas fa-charging-station text-4xl text-blue-400"
+            data-tooltip="Arus (Ampere): Jumlah aliran elektron yang melewati suatu titik dalam rangkaian per satuan waktu."
+          ></i>
+          <h3 class="text-lg mt-4 font-semibold text-white">Arus (Ampere)</h3>
+          <p class="text-sm text-gray-400 mt-2">Jumlah aliran elektron yang melewati suatu titik dalam rangkaian per satuan waktu.</p>
+          <button onclick="openModal('arusModal')" class="mt-4 text-sm text-yellow-300">Lihat Penjelasan Lengkap</button>
+
+          <!-- Tooltip -->
+          <div class="tooltip absolute hidden bg-gray-800 text-white text-xs px-2 py-1 rounded-md w-max top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
+            Penjelasan Arus
+          </div>
+        </div>
+
+        <!-- Hambatan -->
+        <div class="bg-gray-800 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-200 relative group">
+          <i
+            class="fas fa-wave-square text-4xl text-red-400"
+            data-tooltip="Hambatan (Ohm): Besarnya tahanan atau penghambat arus listrik yang diberikan oleh suatu komponen atau material."
+          ></i>
+          <h3 class="text-lg mt-4 font-semibold text-white">Hambatan (Ohm)</h3>
+          <p class="text-sm text-gray-400 mt-2">Besarnya tahanan atau penghambat arus listrik yang diberikan oleh suatu komponen atau material.</p>
+          <button onclick="openModal('hambatanModal')" class="mt-4 text-sm text-yellow-300">Lihat Penjelasan Lengkap</button>
+
+          <!-- Tooltip -->
+          <div class="tooltip absolute hidden bg-gray-800 text-white text-xs px-2 py-1 rounded-md w-max top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
+            Penjelasan Hambatan
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Tegangan -->
+      <div id="teganganModal" class="modal fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+        <div class="modal-content bg-gray-900 p-6 rounded-xl text-white w-[90%] max-w-md shadow-xl relative">
+          <img src="./src/img/download.jpeg" alt="Ikon Tegangan" class="w-32 h-24 mx-auto mb-3" />
+          <h2 class="text-2xl font-bold text-center mb-2">Tegangan (Volt)</h2>
+          <p class="text-sm leading-relaxed">
+            ⚡ <strong>Tegangan listrik</strong> adalah “dorongan” yang diberikan oleh sumber energi (seperti baterai atau adaptor) untuk memindahkan elektron melalui rangkaian
+            listrik. Tegangan membuat elektron mau mengalir, ibarat tekanan air yang membuat air keluar dari pipa. <br /><br />
+            Dalam hukum Ohm, tegangan dilambangkan sebagai huruf <strong>V</strong> dan punya satuan <strong>Volt (V)</strong>. Rumus untuk mencari tegangan:
+          </p>
+          <pre class="bg-gray-800 text-green-400 p-2 rounded mt-3 text-center font-mono">V = I × R</pre>
+          <p class="mt-3 text-sm">
+            ✔️ <strong>V</strong> adalah Tegangan dalam Volt <br />
+            ✔️ <strong>I</strong> adalah Arus dalam Ampere <br />
+            ✔️ <strong>R</strong> adalah Hambatan dalam Ohm <br /><br />
+            Tegangan penting banget, karena tanpa tegangan, nggak akan ada arus yang mengalir. Sama seperti manusia butuh motivasi, rangkaian listrik butuh tegangan buat
+            "bergerak". 😁
+          </p>
+          <button onclick="closeModal('teganganModal')" class="mt-4 bg-red-600 w-full py-2 rounded-lg hover:bg-red-700 transition">Tutup</button>
+        </div>
+      </div>
+
+      <!-- Modal Arus -->
+      <div id="arusModal" class="modal fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+        <div class="modal-content bg-gray-900 p-6 rounded-xl text-white w-[90%] max-w-md shadow-xl relative">
+          <img src="./src/img/What-is-current-1.jpg" alt="Ikon Arus" class="w-64 h-32 mx-auto mb-3" />
+          <h2 class="text-2xl font-bold text-center mb-2">Arus (Ampere)</h2>
+          <p class="text-sm leading-relaxed">
+            🔌 <strong>Arus listrik</strong> adalah aliran elektron dari satu titik ke titik lain dalam rangkaian listrik. Satuan arus adalah <strong>Ampere (A)</strong>,
+            disimbolkan dengan huruf <strong>I</strong>. <br /><br />
+            Bayangin aja arus listrik itu kayak arus air sungai. Semakin deras arusnya, semakin banyak elektron yang ngalir per detik.
+          </p>
+          <pre class="bg-gray-800 text-green-400 p-2 rounded mt-3 text-center font-mono">I = V ÷ R</pre>
+          <p class="mt-3 text-sm">
+            ✔️ Arus akan meningkat kalau tegangan tinggi atau hambatannya kecil. <br />
+            ✔️ Kalau hambatan besar, arus jadi kecil meskipun tegangannya tinggi.
+            <br /><br />
+            Jadi, kalau kamu merasa alat elektronik nggak nyala meski udah dicolok, bisa jadi arusnya kurang — karena hambatannya kegedean atau tegangannya kurang.
+          </p>
+          <button onclick="closeModal('arusModal')" class="mt-4 bg-red-600 w-full py-2 rounded-lg hover:bg-red-700 transition">Tutup</button>
+        </div>
+      </div>
+
+      <!-- Modal Hambatan -->
+      <div id="hambatanModal" class="modal fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+        <div class="modal-content bg-gray-900 p-6 rounded-xl text-white w-[90%] max-w-md shadow-xl relative">
+          <img src="./src/img/Pengertian-hambatan-listrik-400x240.jpg" alt="Ikon Hambatan" class="w-32 h-32 mx-auto mb-3" />
+          <h2 class="text-2xl font-bold text-center mb-2">Hambatan (Ohm)</h2>
+          <p class="text-sm leading-relaxed">
+            🧱 <strong>Hambatan</strong> adalah halangan bagi arus listrik untuk mengalir. Satuan hambatan adalah <strong>Ohm (Ω)</strong> dan disimbolkan dengan
+            <strong>R</strong>. <br /><br />
+            Semakin tinggi hambatannya, semakin sulit arus listrik mengalir. Hambatan bisa disebabkan oleh bahan penghantar yang kurang baik, panjang kabel yang terlalu jauh, atau
+            diameter kabel yang kecil.
+          </p>
+          <pre class="bg-gray-800 text-green-400 p-2 rounded mt-3 text-center font-mono">R = V ÷ I</pre>
+          <p class="mt-3 text-sm">
+            ✔️ Kalau kamu ingin arus besar, hambatannya harus kecil. <br />
+            ✔️ Hambatan bisa diukur menggunakan alat yang namanya <em>ohmmeter</em> atau multimeter. <br /><br />
+            Contoh gampang: tembaga punya hambatan rendah, makanya sering dipakai buat kabel. Sementara kayu? Wah, jangan deh... arusnya ogah lewat situ. 😆
+          </p>
+          <button onclick="closeModal('hambatanModal')" class="mt-4 bg-red-600 w-full py-2 rounded-lg hover:bg-red-700 transition">Tutup</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kalkulator Simulasi -->
+    <section class="flex h-screen flex-col md:flex-row gap-8 px-4 py-8">
+      <section class="bg-gray-950 h-full py-10 px-4">
+        <div class="max-w-xl mx-auto h-full">
+          <h2 class="text-2xl font-semibold mb-4 text-cyan-300 text-center"><i class="fas fa-calculator mr-2"></i>Kalkulator Interaktif</h2>
+
+          <p class="text-center text-gray-400 mb-6">
+            Masukkan nilai <strong>Tegangan (V)</strong> dan <strong>Hambatan (R)</strong>, lalu klik tombol di bawah untuk menghitung <strong>Arus (I)</strong>. Lampu akan menyala
+            lebih terang seiring dengan meningkatnya arus listrik.
+          </p>
+
+          <form id="calcForm" class="bg-gray-800 p-6 rounded-xl shadow-md space-y-4">
+            <div>
+              <label for="volt" class="block mb-1 text-sm">Tegangan (V)</label>
+              <input type="number" id="volt" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 12" />
+            </div>
+            <div>
+              <label for="resistance" class="block mb-1 text-sm">Hambatan (Ohm)</label>
+              <input type="number" id="resistance" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 6" />
+            </div>
+
+            <div class="text-center">
+              <!-- Tombolnya akan diganti di sini -->
+              <button type="button" onclick="hitungArus()" class="w-1/2 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded font-semibold transition duration-200">
+                Hitung Arus
+              </button>
+            </div>
+            <div class="mt-4 text-center text-lg">
+              <span class="text-gray-300">Arus (I) = </span>
+              <span id="result" class="text-yellow-300 font-bold">0</span>
+              <span class="text-gray-300">Ampere</span>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Visualisasi Rangkaian Interaktif -->
+      <section class="max-w-4xl mx-auto px-4 py-10 h-full">
+        <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
+        <div class="h-full p-6 rounded-xl flex flex-col items-center justify-center">
+          <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" />
+          <div class="relative w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+            <div id="electron-track" class="absolute w-full h-full"></div>
+          </div>
+          <p class="text-sm text-gray-400 mt-4">Lampu menyala lebih terang saat arus lebih besar.</p>
+          <p class="text-sm text-gray-400">Semakin besar arus, semakin cepat titiknya bergerak!</p>
+        </div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm bg-gray-900">Dibuat oleh Kelompok 4 🚀 | © 2025</footer>
+
+    <script>
+      function spawnElectrons(speed) {
+        const track = document.getElementById("electron-track");
+        track.innerHTML = ""; // bersihkan dulu
+
+        for (let i = 0; i < 5; i++) {
+          const dot = document.createElement("div");
+          dot.classList.add("electron");
+          dot.style.animationDuration = `${speed}s`;
+          dot.style.animationDelay = `${i * (speed / 5)}s`; // biar berjarak
+          track.appendChild(dot);
+        }
+      }
+
+      function hitungArus() {
+        const V = parseFloat(document.getElementById("volt").value);
+        const R = parseFloat(document.getElementById("resistance").value);
+        const result = document.getElementById("result");
+        const lamp = document.getElementById("lampImg");
+
+        if (!isNaN(V) && !isNaN(R) && R !== 0) {
+          const I = V / R;
+          result.textContent = I.toFixed(2);
+
+          // Brightness lampu
+          let brightness = Math.min(Math.max(I * 0.5 + 0.3, 0.3), 1.8);
+          lamp.style.filter = `brightness(${brightness})`;
+
+          // Animasi elektron (semakin besar arus, semakin cepat)
+          const speed = Math.max(0.5, 2 / I); // misalnya makin besar I, makin cepat animasinya
+          spawnElectrons(speed);
+        } else {
+          result.textContent = "Invalid";
+          lamp.style.filter = "brightness(0.3)";
+          spawnElectrons(2); // default lambat
+        }
+      }
+
+      // Biar dari awal ada animasi juga
+      window.onload = () => spawnElectrons(2);
+
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
