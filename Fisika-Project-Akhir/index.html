@@ -195,53 +195,51 @@
     </section>
 
     <!-- Kalkulator Simulasi -->
-    <section class="flex h-screen flex-col md:flex-row gap-8 px-4 py-8">
-      <section class="bg-gray-950 h-full py-10 px-4">
-        <div class="max-w-xl mx-auto h-full">
-          <h2 class="text-2xl font-semibold mb-4 text-cyan-300 text-center"><i class="fas fa-calculator mr-2"></i>Kalkulator Interaktif</h2>
+    <section class="bg-gray-950 py-5 px-4">
+      <div class="max-w-xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-4 text-cyan-300 text-center"><i class="fas fa-calculator mr-2"></i>Kalkulator Interaktif</h2>
 
-          <p class="text-center text-gray-400 mb-6">
-            Masukkan nilai <strong>Tegangan (V)</strong> dan <strong>Hambatan (R)</strong>, lalu klik tombol di bawah untuk menghitung <strong>Arus (I)</strong>. Lampu akan menyala
-            lebih terang seiring dengan meningkatnya arus listrik.
-          </p>
+        <p class="text-center text-gray-400 mb-6">
+          Masukkan nilai <strong>Tegangan (V)</strong> dan <strong>Hambatan (R)</strong>, lalu klik tombol di bawah untuk menghitung <strong>Arus (I)</strong>. Lampu akan menyala
+          lebih terang seiring dengan meningkatnya arus listrik.
+        </p>
 
-          <form id="calcForm" class="bg-gray-800 p-6 rounded-xl shadow-md space-y-4">
-            <div>
-              <label for="volt" class="block mb-1 text-sm">Tegangan (V)</label>
-              <input type="number" id="volt" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 12" />
-            </div>
-            <div>
-              <label for="resistance" class="block mb-1 text-sm">Hambatan (Ohm)</label>
-              <input type="number" id="resistance" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 6" />
-            </div>
-
-            <div class="text-center">
-              <!-- Tombolnya akan diganti di sini -->
-              <button type="button" onclick="hitungArus()" class="w-1/2 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded font-semibold transition duration-200">
-                Hitung Arus
-              </button>
-            </div>
-            <div class="mt-4 text-center text-lg">
-              <span class="text-gray-300">Arus (I) = </span>
-              <span id="result" class="text-yellow-300 font-bold">0</span>
-              <span class="text-gray-300">Ampere</span>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- Visualisasi Rangkaian Interaktif -->
-      <section class="max-w-4xl mx-auto px-4 py-10 h-full">
-        <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
-        <div class="h-full p-6 rounded-xl flex flex-col items-center justify-center">
-          <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" />
-          <div class="relative w-full h-4 bg-gray-700 rounded-full overflow-hidden">
-            <div id="electron-track" class="absolute w-full h-full"></div>
+        <form id="calcForm" class="bg-gray-800 p-6 rounded-xl shadow-md space-y-4">
+          <div>
+            <label for="volt" class="block mb-1 text-sm">Tegangan (V)</label>
+            <input type="number" id="volt" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 12" />
           </div>
-          <p class="text-sm text-gray-400 mt-4">Lampu menyala lebih terang saat arus lebih besar.</p>
-          <p class="text-sm text-gray-400">Semakin besar arus, semakin cepat titiknya bergerak!</p>
+          <div>
+            <label for="resistance" class="block mb-1 text-sm">Hambatan (Ohm)</label>
+            <input type="number" id="resistance" class="w-full p-2 rounded bg-gray-900 text-white border border-gray-600" placeholder="Misal: 6" />
+          </div>
+
+          <div class="text-center">
+            <!-- Tombolnya akan diganti di sini -->
+            <button type="button" onclick="hitungArus()" class="w-1/2 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded font-semibold transition duration-200">
+              Hitung Arus
+            </button>
+          </div>
+          <div class="mt-4 text-center text-lg">
+            <span class="text-gray-300">Arus (I) = </span>
+            <span id="result" class="text-yellow-300 font-bold">0</span>
+            <span class="text-gray-300">Ampere</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Visualisasi Rangkaian Interaktif -->
+    <section class="max-w-4xl mx-auto px-4 py-5">
+      <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
+      <div class="p-6 rounded-xl flex flex-col items-center justify-center">
+        <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" />
+        <div class="relative w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+          <div id="electron-track" class="absolute w-full h-full"></div>
         </div>
-      </section>
+        <p class="text-sm text-gray-400 mt-4">Lampu menyala lebih terang saat arus lebih besar.</p>
+        <p class="text-sm text-gray-400">Semakin besar arus, semakin cepat titiknya bergerak!</p>
+      </div>
     </section>
 
     <!-- Footer -->
