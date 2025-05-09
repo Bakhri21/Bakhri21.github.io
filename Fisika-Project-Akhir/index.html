@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/all.min.css" media="print" onload="this.media='all'" />
 
     <!-- Optimalkan font, ini jika kamu pakai font Google atau custom -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     <title>Simulasi Hukum Ohm</title>
 
     <style>
@@ -91,7 +92,7 @@
         <code class="bg-gray-700 px-2 py-1 rounded">V = I × R</code>. Website ini membantu kamu memahami konsep ini melalui penjelasan dan simulasi langsung.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-6 text-center mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-8">
         <!-- Tegangan -->
         <div class="bg-gray-800 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-200 relative group">
           <i class="fas fa-bolt text-4xl text-yellow-400" data-tooltip="Tegangan (Volt): Dorongan listrik dari sumber energi untuk menggerakkan elektron dalam rangkaian."></i>
@@ -225,7 +226,7 @@
 
           <div class="text-center">
             <!-- Tombolnya akan diganti di sini -->
-            <button type="button" onclick="hitungArus()" class="w-1/2 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded font-semibold transition duration-200">
+            <button type="button" onclick="hitungArus()" class="w-full sm:w-1/2 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded font-semibold transition duration-200">
               Hitung Arus
             </button>
           </div>
@@ -242,7 +243,7 @@
     <section class="max-w-4xl mx-auto px-4 py-5">
       <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
       <div class="p-6 rounded-xl flex flex-col items-center justify-center">
-        <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" />
+        <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" style="aspect-ratio: 1 / 1" />
         <div class="relative w-full h-4 bg-gray-700 rounded-full overflow-hidden">
           <div id="electron-track" class="absolute w-full h-full"></div>
         </div>
