@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Simulasi hambatan & arus listrik. Belajar Fisika Lebih Seru dengan Visual & Interaktif. Website ini membantu kamu memahami konsep ini melalui penjelasan dan simulasi langsung."
+    />
+    <meta name="keywords" content="fisika, hukum ohm, simulasi, arus listrik, hambatan, resistor" />
+    <meta name="author" content="Kelompok 4" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Preload CSS dan Font untuk mempercepat render -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/font-awesome/css/all.min.css" as="style" />
 
     <!-- Tunda pemuatan CSS menggunakan media print -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" media="print" onload="this.media='all'" />
+
+    <link rel="stylesheet" href="./src/css/output.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/all.min.css" media="print" onload="this.media='all'" />
 
     <!-- Optimalkan font, ini jika kamu pakai font Google atau custom -->
@@ -86,7 +95,7 @@
 
     <!-- Intro Section -->
     <section class="max-w-4xl mx-auto px-4 py-10">
-      <h2 class="text-2xl font-semibold mb-4 text-cyan-300"><i class="fas fa-info-circle mr-2"></i>Penjelasan Singkat</h2>
+      <h2 class="text-2xl font-semibold mb-4 text-white"><i class="fas fa-info-circle mr-2"></i>Penjelasan Singkat</h2>
       <p class="mb-4 text-gray-200">
         Dalam hukum Ohm, hubungan antara <strong>tegangan (V)</strong>, <strong>arus (I)</strong>, dan <strong>hambatan (R)</strong> dirumuskan sebagai:
         <code class="bg-gray-700 px-2 py-1 rounded">V = I × R</code>. Website ini membantu kamu memahami konsep ini melalui penjelasan dan simulasi langsung.
@@ -205,9 +214,9 @@
     </section>
 
     <!-- Kalkulator Simulasi -->
-    <section class="bg-gray-950 py-5 px-4">
+    <section class="py-5 px-4">
       <div class="max-w-xl mx-auto">
-        <h2 class="text-2xl font-semibold mb-4 text-cyan-300 text-center"><i class="fas fa-calculator mr-2"></i>Kalkulator Interaktif</h2>
+        <h2 class="text-2xl font-semibold mb-4 text-white text-center"><i class="fas fa-calculator mr-2"></i>Kalkulator Interaktif</h2>
 
         <p class="text-center text-gray-400 mb-6">
           Masukkan nilai <strong>Tegangan (V)</strong> dan <strong>Hambatan (R)</strong>, lalu klik tombol di bawah untuk menghitung <strong>Arus (I)</strong>. Lampu akan menyala
@@ -241,7 +250,7 @@
 
     <!-- Visualisasi Rangkaian Interaktif -->
     <section class="max-w-4xl mx-auto px-4 py-5">
-      <h2 class="text-2xl font-semibold mb-6 text-cyan-300 text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
+      <h2 class="text-2xl font-semibold mb-6 text-white text-center"><i class="fas fa-lightbulb mr-2"></i>Simulasi Lampu</h2>
       <div class="p-6 rounded-xl flex flex-col items-center justify-center">
         <img id="lampImg" src="https://img.icons8.com/emoji/96/light-bulb-emoji.png" alt="Lampu" class="lamp w-32 h-32 mb-4 mx-auto" style="aspect-ratio: 1 / 1" />
         <div class="relative w-full h-4 bg-gray-700 rounded-full overflow-hidden">
