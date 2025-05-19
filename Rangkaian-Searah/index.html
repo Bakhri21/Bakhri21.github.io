@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Rangkaian Searah</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <header class="bg-blue-700 text-white p-4 shadow-md">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Rangkaian Searah</h1>
+        <nav class="space-x-4 text-sm">
+          <a href="#home" class="hover:underline">Beranda</a>
+          <a href="#konsep" class="hover:underline">Konsep</a>
+          <a href="#simulasi" class="hover:underline">Simulasi</a>
+          <a href="#tools" class="hover:underline">Tools</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="p-6 container mx-auto space-y-24">
+      <!-- 1. Halaman Utama -->
+      <section id="home" class="space-y-12">
+        <!-- Jumbotron -->
+        <div class="bg-white p-6 shadow rounded-lg flex flex-col md:flex-row items-center gap-6">
+          <div class="flex-1 space-y-2">
+            <h2 class="text-3xl font-bold text-blue-700">Belajar Rangkaian Searah Lebih Mudah</h2>
+            <p class="text-gray-700">
+              Website ini dirancang untuk membantu kamu memahami dasar-dasar listrik searah (DC) secara interaktif, lengkap dengan simulasi dan penjelasan visual.
+            </p>
+          </div>
+          <div class="flex-1">
+            <img src="./src/img/Jumbotron.jpg" alt="Ilustrasi Rangkaian DC" class="w-full max-w-xs mx-auto" />
+          </div>
+        </div>
+
+        <!-- Pengertian -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Apa itu Rangkaian Searah?</h3>
+          <p>
+            Rangkaian searah (DC) adalah sistem kelistrikan di mana arus listrik mengalir dalam satu arah tetap. Umumnya digunakan dalam baterai, charger, dan peralatan elektronik
+            sederhana. Sumber tegangan searah seperti baterai menghasilkan arus konstan yang sangat stabil, cocok untuk perangkat digital dan portabel.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. Konsep Dasar -->
+      <section id="konsep" class="space-y-6">
+        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Konsep Dasar & Komponen</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Komponen Resistor -->
+          <div class="bg-white shadow rounded-xl p-4">
+            <h3 class="font-bold text-lg mb-2"><i class="fas fa-minus text-red-500"></i> Resistor</h3>
+            <img src="./src/img/Resistor.jpg" alt="Resistor" class="w-50 mx-auto mb-2" />
+            <p>
+              Resistor adalah komponen yang berfungsi untuk menghambat arus listrik dalam rangkaian. Dalam hukum Ohm, resistansi (R) mempengaruhi besar arus (I) yang mengalir pada
+              tegangan (V) tertentu.
+            </p>
+          </div>
+
+          <!-- Hukum Ohm dan Kirchoff -->
+          <div class="bg-white shadow rounded-xl p-4">
+            <h3 class="font-bold text-lg mb-2"><i class="fas fa-bolt text-yellow-500"></i> Hukum Ohm & Kirchoff</h3>
+            <p><strong>Hukum Ohm:</strong> V = I × R. Tegangan (V) sebanding dengan arus (I) dan resistansi (R).</p>
+            <p class="mt-2"><strong>Hukum Kirchoff:</strong></p>
+            <ul class="list-disc ml-6 text-sm">
+              <li><em>Kirchoff Arus:</em> Jumlah arus masuk = jumlah arus keluar pada titik cabang.</li>
+              <li><em>Kirchoff Tegangan:</em> Jumlah tegangan dalam satu loop tertutup = 0.</li>
+            </ul>
+          </div>
+
+          <!-- Jenis Rangkaian -->
+          <div class="bg-white shadow rounded-xl p-4">
+            <h3 class="font-bold text-lg mb-2"><i class="fas fa-project-diagram text-green-500"></i> Jenis Rangkaian</h3>
+            <img src="./src/img/Rangkaian.jpg" alt="Jenis Rangkaian" class="w-full mt-2" />
+            <ul class="list-disc ml-4 space-y-2">
+              <li><strong>Seri:</strong> Komponen disusun satu jalur, arus sama, tegangan terbagi.</li>
+              <li><strong>Paralel:</strong> Komponen memiliki jalur masing-masing, tegangan sama, arus terbagi.</li>
+              <li><strong>Kombinasi:</strong> Gabungan antara seri dan paralel.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Simulasi Interaktif -->
+      <section id="simulasi" class="space-y-4">
+        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Simulasi Hukum Ohm</h2>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="space-y-2 w-full md:w-1/3">
+            <label class="block">Tegangan (Volt):</label>
+            <input type="number" id="tegangan" class="border p-2 rounded w-full" placeholder="Contoh: 12" />
+
+            <label class="block mt-4">Resistansi (Ohm):</label>
+            <input type="number" id="resistansi" class="border p-2 rounded w-full" placeholder="Contoh: 6" />
+
+            <button onclick="hitungArus()" class="bg-blue-600 text-white px-4 py-2 rounded w-full mt-4">Hitung Arus</button>
+            <p id="hasilArus" class="text-lg font-semibold text-blue-700"></p>
+          </div>
+          <div class="w-full md:w-2/3 text-center">
+            <img src="./src/img/Hukum-Ohm.jpg" alt="Ohm Chart" class="mx-auto mt-4 cover rounded-lg" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Tools -->
+      <section id="tools" class="space-y-8">
+        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Tools Tambahan</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Kalkulator Daya Listrik -->
+          <div class="bg-white shadow rounded-xl p-6 space-y-4">
+            <h3 class="text-xl font-bold mb-2"><i class="fas fa-bolt text-yellow-500"></i> Kalkulator Daya Listrik (P = V × I)</h3>
+            <div class="grid md:grid-cols-3 gap-4 items-center">
+              <input type="number" id="dayaV" placeholder="Tegangan (V)" class="border p-2 rounded w-full" />
+              <input type="number" id="dayaI" placeholder="Arus (I)" class="border p-2 rounded w-full" />
+              <button onclick="hitungDaya()" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Hitung Daya</button>
+            </div>
+            <p id="hasilDaya" class="text-lg font-semibold text-blue-700 mt-2"></p>
+          </div>
+          <!-- Kalkulator Resistansi Total -->
+          <div class="bg-white shadow rounded-xl p-6 space-y-4">
+            <h3 class="text-xl font-bold mb-2"><i class="fas fa-project-diagram text-green-600"></i> Kalkulator Resistansi Total</h3>
+            <textarea id="inputResistor" rows="2" class="w-full border rounded p-2" placeholder="Contoh input: 100, 200, 330"></textarea>
+            <div class="flex flex-col md:flex-row gap-4">
+              <button onclick="hitungResSeri()" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Hitung Seri</button>
+              <button onclick="hitungResParalel()" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Hitung Paralel</button>
+            </div>
+            <p id="hasilResistansi" class="text-lg font-semibold text-blue-700"></p>
+          </div>
+          <!-- Konversi Warna Resistor (Statik Sementara) -->
+          <div class="bg-white shadow rounded-xl p-6 space-y-2">
+            <h3 class="text-xl font-bold mb-2"><i class="fas fa-palette text-red-500"></i> Panduan Warna Resistor</h3>
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="bg-blue-100">
+                  <th class="p-2">Warna</th>
+                  <th class="p-2">Angka</th>
+                  <th class="p-2">Multiplier</th>
+                  <th class="p-2">Toleransi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2">Hitam</td>
+                  <td class="p-2">0</td>
+                  <td class="p-2">×1</td>
+                  <td class="p-2">-</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Coklat</td>
+                  <td class="p-2">1</td>
+                  <td class="p-2">×10</td>
+                  <td class="p-2">±1%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Merah</td>
+                  <td class="p-2">2</td>
+                  <td class="p-2">×100</td>
+                  <td class="p-2">±2%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Oranye</td>
+                  <td class="p-2">3</td>
+                  <td class="p-2">×1k</td>
+                  <td class="p-2">-</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Kuning</td>
+                  <td class="p-2">4</td>
+                  <td class="p-2">×10k</td>
+                  <td class="p-2">-</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Hijau</td>
+                  <td class="p-2">5</td>
+                  <td class="p-2">×100k</td>
+                  <td class="p-2">±0.5%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Biru</td>
+                  <td class="p-2">6</td>
+                  <td class="p-2">×1M</td>
+                  <td class="p-2">±0.25%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Ungu</td>
+                  <td class="p-2">7</td>
+                  <td class="p-2">×10M</td>
+                  <td class="p-2">±0.1%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Abu-abu</td>
+                  <td class="p-2">8</td>
+                  <td class="p-2">×100M</td>
+                  <td class="p-2">±0.05%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Putih</td>
+                  <td class="p-2">9</td>
+                  <td class="p-2">×1G</td>
+                  <td class="p-2">-</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Emas</td>
+                  <td class="p-2">-</td>
+                  <td class="p-2">×0.1</td>
+                  <td class="p-2">±5%</td>
+                </tr>
+                <tr>
+                  <td class="p-2">Perak</td>
+                  <td class="p-2">-</td>
+                  <td class="p-2">×0.01</td>
+                  <td class="p-2">±10%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Kalkulator Pembagi Tegangan -->
+          <div class="bg-white shadow rounded-xl p-4">
+            <h3 class="font-bold text-lg mb-2">Kalkulator Pembagi Tegangan</h3>
+            <label class="block">Tegangan Input (Vin):</label>
+            <input type="number" id="vin" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 12" />
+
+            <label class="block">Resistor 1 (R1):</label>
+            <input type="number" id="r1" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 4" />
+
+            <label class="block">Resistor 2 (R2):</label>
+            <input type="number" id="r2" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 6" />
+
+            <button onclick="hitungPembagi()" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Hitung Tegangan Keluaran</button>
+            <p id="hasilPembagi" class="mt-2 font-semibold text-blue-700"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-blue-700 text-white text-center py-4 mt-10">
+      <p>&copy; 2025 Rangkaian Searah. by Web Inovasion.</p>
+    </footer>
+
+    <script>
+      function hitungArus() {
+        const V = parseFloat(document.getElementById("tegangan").value);
+        const R = parseFloat(document.getElementById("resistansi").value);
+        const hasil = document.getElementById("hasilArus");
+        if (!isNaN(V) && !isNaN(R) && R !== 0) {
+          const I = V / R;
+          hasil.textContent = `Arus yang mengalir: ${I.toFixed(2)} A`;
+        } else {
+          hasil.textContent = "Masukkan nilai valid untuk tegangan dan resistansi (R ≠ 0).";
+        }
+      }
+
+      function hitungPembagi() {
+        const vin = parseFloat(document.getElementById("vin").value);
+        const r1 = parseFloat(document.getElementById("r1").value);
+        const r2 = parseFloat(document.getElementById("r2").value);
+        const hasil = document.getElementById("hasilPembagi");
+
+        if (!isNaN(vin) && !isNaN(r1) && !isNaN(r2) && r1 + r2 !== 0) {
+          const vout = vin * (r2 / (r1 + r2));
+          hasil.textContent = `Tegangan keluaran (Volt): ${vout.toFixed(2)} V`;
+        } else {
+          hasil.textContent = "Masukkan nilai valid untuk Vin, R1, dan R2.";
+        }
+      }
+
+      function hitungDaya() {
+        const V = parseFloat(document.getElementById("dayaV").value);
+        const I = parseFloat(document.getElementById("dayaI").value);
+        const hasil = document.getElementById("hasilDaya");
+        if (!isNaN(V) && !isNaN(I)) {
+          const P = V * I;
+          hasil.textContent = `Daya listrik: ${P.toFixed(2)} Watt`;
+        } else {
+          hasil.textContent = "Masukkan tegangan dan arus yang valid.";
+        }
+      }
+
+      function hitungResSeri() {
+        const input = document.getElementById("inputResistor").value;
+        const resistorArray = input
+          .split(",")
+          .map((r) => parseFloat(r.trim()))
+          .filter((r) => !isNaN(r));
+        const total = resistorArray.reduce((acc, val) => acc + val, 0);
+        document.getElementById("hasilResistansi").textContent = `Total resistansi seri: ${total.toFixed(2)} Ω`;
+      }
+
+      function hitungResParalel() {
+        const input = document.getElementById("inputResistor").value;
+        const resistorArray = input
+          .split(",")
+          .map((r) => parseFloat(r.trim()))
+          .filter((r) => !isNaN(r) && r !== 0);
+        const total = 1 / resistorArray.reduce((acc, val) => acc + 1 / val, 0);
+        document.getElementById("hasilResistansi").textContent = `Total resistansi paralel: ${total.toFixed(2)} Ω`;
+      }
+    </script>
+  </body>
+</html>
