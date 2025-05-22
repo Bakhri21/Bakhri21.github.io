@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lily's Café! - Keranjang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body class="bg-pink-50 text-gray-800 p-4">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold text-pink-600 mb-6 text-center">Keranjang Belanja</h1>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border border-pink-300 rounded-md overflow-hidden">
+          <thead class="bg-pink-400 text-white">
+            <tr>
+              <th class="p-3">Nama Produk</th>
+              <th class="p-3">Harga (Rp)</th>
+            </tr>
+          </thead>
+          <tbody id="cart-table-body" class="bg-white"></tbody>
+          <tfoot class="bg-pink-100">
+            <tr>
+              <th class="p-3">Subtotal</th>
+              <th class="p-3" id="subtotal-price">0</th>
+            </tr>
+            <tr>
+              <th class="p-3">Ongkir</th>
+              <th class="p-3" id="shipping-cost">0</th>
+            </tr>
+            <tr>
+              <th class="p-3">Total</th>
+              <th class="p-3" id="total-price">0</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <button onclick="clearCart()" class="mt-4 float-right bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded shadow">Kosongkan Keranjang</button>
+
+      <div class="clear-both mt-8">
+        <label for="expedisi" class="block font-semibold mb-1">Pilih Ekspedisi:</label>
+        <select id="expedisi" onchange="updateShipping()" class="w-full p-2 border border-pink-300 rounded">
+          <option value="express">Express (20-30 menit) - Rp15.000</option>
+          <option value="reguler">Reguler (42 menit) - Rp10.000</option>
+          <option value="hemat">Hemat (60 menit) - Rp5.000</option>
+        </select>
+        <p id="estimasi" class="mt-2 text-pink-600 font-bold">Estimasi waktu pengiriman</p>
+      </div>
+
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold mb-2">Informasi Pembeli:</h3>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" class="w-full p-2 mb-3 border rounded" required />
+
+        <label for="telepon">Nomor Telepon:</label>
+        <input type="text" id="telepon" class="w-full p-2 mb-3 border rounded" required />
+
+        <label for="alamat">Alamat Pengiriman:</label>
+        <textarea id="alamat" rows="3" class="w-full p-2 mb-3 border rounded" required></textarea>
+      </div>
+
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold mb-2">Pilih Metode Pembayaran:</h3>
+        <div class="flex flex-col gap-2">
+          <label><input type="radio" id="transfer" name="payment" value="transfer" checked onchange="updateKodePembayaran()" /> Transfer Bank</label>
+          <label><input type="radio" id="ewallet" name="payment" value="ewallet" onchange="updateKodePembayaran()" /> E-Wallet</label>
+          <label><input type="radio" id="cod" name="payment" value="cod" onchange="updateKodePembayaran()" /> Cash On Delivery (COD)</label>
+        </div>
+        <p id="kode-pembayaran" class="mt-2 text-pink-600 font-semibold">Kode Pembayaran: TRX1234567890</p>
+      </div>
+
+      <button onclick="printStruk()" class="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 py-3 rounded shadow block w-full text-center">
+        Bayar & Print Struk
+      </button>
+    </div>
+
+    <script>
+      let shippingPrices = { express: 15000, reguler: 10000, hemat: 5000 };
+      let shippingEstimates = { express: "20-30 menit", reguler: "42 menit", hemat: "60 menit" };
+
+      function loadCart() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const tbody = document.getElementById("cart-table-body");
+        tbody.innerHTML = "";
+        let subtotal = 0;
+
+        if (cart.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="2" class="text-center py-4">Keranjang kosong 🥲</td></tr>';
+        }
+
+        cart.forEach((item) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td class='p-3'>${item.name}</td><td class='p-3'>${item.price.toLocaleString("id-ID")}</td>`;
+          tbody.appendChild(tr);
+          subtotal += item.price;
+        });
+
+        document.getElementById("subtotal-price").textContent = subtotal.toLocaleString("id-ID");
+
+        if (cart.length > 0) {
+          document.getElementById("shipping-cost").textContent = shippingPrices["express"].toLocaleString("id-ID");
+          updateTotal(subtotal, shippingPrices["express"]);
+          updateEstimasiText("express");
+        } else {
+          document.getElementById("shipping-cost").textContent = "0";
+          updateTotal(0, 0);
+          updateEstimasiText("express");
+        }
+      }
+
+      function updateShipping() {
+        const ekspedisi = document.getElementById("expedisi").value;
+        const subtotal = Number(document.getElementById("subtotal-price").textContent.replace(/\./g, ""));
+        const ongkir = shippingPrices[ekspedisi];
+
+        document.getElementById("shipping-cost").textContent = ongkir.toLocaleString("id-ID");
+        updateEstimasiText(ekspedisi);
+        updateTotal(subtotal, ongkir);
+      }
+
+      function updateEstimasiText(ekspedisi) {
+        document.getElementById("estimasi").textContent = "Estimasi waktu pengiriman: " + shippingEstimates[ekspedisi];
+      }
+
+      function updateTotal(subtotal, ongkir) {
+        const total = subtotal + ongkir;
+        document.getElementById("total-price").textContent = total.toLocaleString("id-ID");
+      }
+
+      function clearCart() {
+        localStorage.removeItem("cart");
+        alert("Keranjang berhasil dikosongkan!");
+        loadCart();
+      }
+
+      function updateKodePembayaran() {
+        const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+        let kode = "";
+        if (paymentMethod === "transfer") {
+          kode = "TRX1234567890";
+        } else if (paymentMethod === "ewallet") {
+          kode = "EWALLET0987654321";
+        } else if (paymentMethod === "cod") {
+          kode = "Bayar langsung ke kurir saat barang diterima";
+        }
+        document.getElementById("kode-pembayaran").textContent = "Kode Pembayaran: " + kode;
+      }
+
+      function printStruk() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cart.length === 0) return alert("Keranjang kosong!");
+
+        const nama = document.getElementById("nama").value.trim();
+        const telepon = document.getElementById("telepon").value.trim();
+        const alamat = document.getElementById("alamat").value.trim();
+
+        if (!nama || !telepon || !alamat) {
+          alert("Mohon lengkapi informasi pembeli (nama, telepon, alamat).");
+          return;
+        }
+
+        if (!confirm("Apakah sudah melakukan pembayaran?")) return;
+
+        const ekspedisi = document.getElementById("expedisi").value;
+        const ongkir = shippingPrices[ekspedisi];
+
+        let struk = "===== STRUK PEMBELIAN =====\n";
+        struk += `Nama: ${nama}\n`;
+        struk += `No. Telepon: ${telepon}\n`;
+        struk += `Alamat: ${alamat}\n\n`;
+
+        cart.forEach((item) => {
+          struk += `${item.name} - Rp${item.price.toLocaleString("id-ID")}\n`;
+        });
+
+        const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        const total = subtotal + ongkir;
+
+        struk += `\nSubtotal: Rp${subtotal.toLocaleString("id-ID")}\n`;
+        struk += `Ongkir (${ekspedisi}): Rp${ongkir.toLocaleString("id-ID")}\n`;
+        struk += `Total: Rp${total.toLocaleString("id-ID")}\n`;
+        struk += document.getElementById("estimasi").textContent + "\n";
+        struk += document.getElementById("kode-pembayaran").textContent + "\n";
+
+        const newWindow = window.open("", "", "width=400,height=600");
+        newWindow.document.write("<pre>" + struk + "</pre>");
+        newWindow.document.close();
+        newWindow.focus();
+        newWindow.print();
+        setTimeout(() => {
+          newWindow.close();
+          localStorage.removeItem("cart");
+          loadCart();
+          document.getElementById("nama").value = "";
+          document.getElementById("telepon").value = "";
+          document.getElementById("alamat").value = "";
+        }, 1000);
+      }
+
+      loadCart();
+      updateKodePembayaran();
+    </script>
+  </body>
+</html>

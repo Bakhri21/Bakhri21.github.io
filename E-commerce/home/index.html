@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lily's Café!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body class="bg-pink-100 h-screen flex items-center justify-center">
+    <!-- Container Utama -->
+    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg w-[95%] max-w-6xl h-[95vh] flex flex-col">
+      <!-- Header -->
+
+      <!-- Main -->
+      <main class="flex flex-1 flex-col-reverse sm:flex-row items-center justify-between">
+        <!-- Tulisan -->
+        <div class="sm:w-1/2 text-center sm:text-left">
+          <h1 class="text-3xl sm:text-4xl font-bold text-pink-600 mb-4">Welcome to Lily's Café!</h1>
+          <p class="text-pink-500 mb-6">
+            hi! Make your day great with our special food and drinks! welcome to our website, enjoy your favorite drink and discover little joys every day. silahkan jelajahi menu
+            di sebelah kiri untuk melihat profil kami dan minuman lezat 🍭
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+            <a
+              href="https://wa.me/6281234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex justify-center items-center bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full transition-all w-full sm:w-auto"
+            >
+              <i class="fas fa-phone-alt mr-2"></i> Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Gambar -->
+        <div class="sm:w-1/2 mb-8 sm:mb-0">
+          <img src="../src/img/beranda.webp" alt="Cute" class="w-full max-w-xs mx-auto drop-shadow-lg" />
+        </div>
+      </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
