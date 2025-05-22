@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Rangkaian Searah</title>
     <style>
@@ -14,16 +16,59 @@
   </head>
 
   <body class="bg-gray-50 text-gray-800 font-sans">
-    <header class="bg-blue-700 text-white p-4 shadow-md">
+    <!-- Header -->
+    <header class="bg-blue-700 text-white p-4 shadow-md sticky top-0 z-50" x-data="{ open: false }">
       <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-2xl font-bold">Rangkaian Searah</h1>
-        <nav class="space-x-4 text-sm">
-          <a href="#home" class="hover:underline">Beranda</a>
-          <a href="#konsep" class="hover:underline">Konsep</a>
-          <a href="#simulasi" class="hover:underline">Simulasi</a>
-          <a href="#tools" class="hover:underline">Tools</a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-12 text-sm">
+          <a
+            href="#home"
+            class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+            >Beranda</a
+          >
+          <a
+            href="#konsep"
+            class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+            >Konsep</a
+          >
+          <a
+            href="#simulasi"
+            class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+            >Simulasi</a
+          >
         </nav>
+
+        <!-- Hamburger (Mobile only) -->
+        <button @click="open = !open" class="md:hidden text-white text-xl focus:outline-none">
+          <i :class="open ? 'fas fa-times' : 'fas fa-bars'"></i>
+        </button>
       </div>
+
+      <!-- Mobile Menu -->
+      <nav
+        x-show="open"
+        x-transition.duration.300ms
+        class="md:hidden flex flex-col space-y-3 text-sm mt-4 px-4 bg-blue-800 py-4 rounded-b-lg shadow-inner"
+        @click.away="open = false"
+      >
+        <a
+          href="#home"
+          class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+          >Beranda</a
+        >
+        <a
+          href="#konsep"
+          class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+          >Konsep</a
+        >
+        <a
+          href="#simulasi"
+          class="relative inline-block after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+          >Simulasi</a
+        >
+      </nav>
     </header>
 
     <main class="p-6 container mx-auto space-y-24">
@@ -88,154 +133,194 @@
             </ul>
           </div>
         </div>
-      </section>
+        <!-- Konversi Warna Resistor (Statik Sementara) -->
+        <div class="bg-white shadow rounded-xl p-6 space-y-4">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <i class="fas fa-palette text-red-500"></i>
+            Panduan Warna Resistor
+          </h3>
 
-      <!-- 3. Simulasi Interaktif -->
-      <section id="simulasi" class="space-y-4">
-        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Simulasi Hukum Ohm</h2>
-        <div class="flex flex-col md:flex-row items-center gap-6">
-          <div class="space-y-2 w-full md:w-1/3">
-            <label class="block">Tegangan (Volt):</label>
-            <input type="number" id="tegangan" class="border p-2 rounded w-full" placeholder="Contoh: 12" />
-
-            <label class="block mt-4">Resistansi (Ohm):</label>
-            <input type="number" id="resistansi" class="border p-2 rounded w-full" placeholder="Contoh: 6" />
-
-            <button onclick="hitungArus()" class="bg-blue-600 text-white px-4 py-2 rounded w-full mt-4">Hitung Arus</button>
-            <p id="hasilArus" class="text-lg font-semibold text-blue-700"></p>
-          </div>
-          <div class="w-full md:w-2/3 text-center">
-            <img src="./src/img/Hukum-Ohm.jpg" alt="Ohm Chart" class="mx-auto mt-4 cover rounded-lg" />
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Tools -->
-      <section id="tools" class="space-y-8">
-        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Tools Tambahan</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Kalkulator Daya Listrik -->
-          <div class="bg-white shadow rounded-xl p-6 space-y-4">
-            <h3 class="text-xl font-bold mb-2"><i class="fas fa-bolt text-yellow-500"></i> Kalkulator Daya Listrik (P = V × I)</h3>
-            <div class="grid md:grid-cols-3 gap-4 items-center">
-              <input type="number" id="dayaV" placeholder="Tegangan (V)" class="border p-2 rounded w-full" />
-              <input type="number" id="dayaI" placeholder="Arus (I)" class="border p-2 rounded w-full" />
-              <button onclick="hitungDaya()" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Hitung Daya</button>
-            </div>
-            <p id="hasilDaya" class="text-lg font-semibold text-blue-700 mt-2"></p>
-          </div>
-          <!-- Kalkulator Resistansi Total -->
-          <div class="bg-white shadow rounded-xl p-6 space-y-4">
-            <h3 class="text-xl font-bold mb-2"><i class="fas fa-project-diagram text-green-600"></i> Kalkulator Resistansi Total</h3>
-            <textarea id="inputResistor" rows="2" class="w-full border rounded p-2" placeholder="Contoh input: 100, 200, 330"></textarea>
-            <div class="flex flex-col md:flex-row gap-4">
-              <button onclick="hitungResSeri()" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Hitung Seri</button>
-              <button onclick="hitungResParalel()" class="bg-blue-500 text-white px-4 py-2 rounded w-full">Hitung Paralel</button>
-            </div>
-            <p id="hasilResistansi" class="text-lg font-semibold text-blue-700"></p>
-          </div>
-          <!-- Konversi Warna Resistor (Statik Sementara) -->
-          <div class="bg-white shadow rounded-xl p-6 space-y-2">
-            <h3 class="text-xl font-bold mb-2"><i class="fas fa-palette text-red-500"></i> Panduan Warna Resistor</h3>
-            <table class="w-full text-sm text-left">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left border border-gray-200">
               <thead>
-                <tr class="bg-blue-100">
-                  <th class="p-2">Warna</th>
-                  <th class="p-2">Angka</th>
-                  <th class="p-2">Multiplier</th>
-                  <th class="p-2">Toleransi</th>
+                <tr class="bg-blue-100 text-gray-700">
+                  <th class="p-3">Warna</th>
+                  <th class="p-3">Angka</th>
+                  <th class="p-3">Multiplier</th>
+                  <th class="p-3">Toleransi</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td class="p-2">Hitam</td>
-                  <td class="p-2">0</td>
-                  <td class="p-2">×1</td>
-                  <td class="p-2">-</td>
+              <tbody class="divide-y">
+                <!-- ITEM TEMPLATE -->
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-black border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">0</td>
+                  <td class="p-3">×1</td>
+                  <td class="p-3">-</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Coklat</td>
-                  <td class="p-2">1</td>
-                  <td class="p-2">×10</td>
-                  <td class="p-2">±1%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-[#8B4513] border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">1</td>
+                  <td class="p-3">×10</td>
+                  <td class="p-3">±1%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Merah</td>
-                  <td class="p-2">2</td>
-                  <td class="p-2">×100</td>
-                  <td class="p-2">±2%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-red-600 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">2</td>
+                  <td class="p-3">×100</td>
+                  <td class="p-3">±2%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Oranye</td>
-                  <td class="p-2">3</td>
-                  <td class="p-2">×1k</td>
-                  <td class="p-2">-</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-orange-500 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">3</td>
+                  <td class="p-3">×1k</td>
+                  <td class="p-3">-</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Kuning</td>
-                  <td class="p-2">4</td>
-                  <td class="p-2">×10k</td>
-                  <td class="p-2">-</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-yellow-300 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">4</td>
+                  <td class="p-3">×10k</td>
+                  <td class="p-3">-</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Hijau</td>
-                  <td class="p-2">5</td>
-                  <td class="p-2">×100k</td>
-                  <td class="p-2">±0.5%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-green-500 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">5</td>
+                  <td class="p-3">×100k</td>
+                  <td class="p-3">±0.5%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Biru</td>
-                  <td class="p-2">6</td>
-                  <td class="p-2">×1M</td>
-                  <td class="p-2">±0.25%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-blue-500 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">6</td>
+                  <td class="p-3">×1M</td>
+                  <td class="p-3">±0.25%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Ungu</td>
-                  <td class="p-2">7</td>
-                  <td class="p-2">×10M</td>
-                  <td class="p-2">±0.1%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-purple-500 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">7</td>
+                  <td class="p-3">×10M</td>
+                  <td class="p-3">±0.1%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Abu-abu</td>
-                  <td class="p-2">8</td>
-                  <td class="p-2">×100M</td>
-                  <td class="p-2">±0.05%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-gray-400 border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">8</td>
+                  <td class="p-3">×100M</td>
+                  <td class="p-3">±0.05%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Putih</td>
-                  <td class="p-2">9</td>
-                  <td class="p-2">×1G</td>
-                  <td class="p-2">-</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-white border border-gray-300"></div>
+                  </td>
+                  <td class="p-3">9</td>
+                  <td class="p-3">×1G</td>
+                  <td class="p-3">-</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Emas</td>
-                  <td class="p-2">-</td>
-                  <td class="p-2">×0.1</td>
-                  <td class="p-2">±5%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-yellow-500 border border-gray-400" style="opacity: 0.6"></div>
+                  </td>
+                  <td class="p-3">-</td>
+                  <td class="p-3">×0.1</td>
+                  <td class="p-3">±5%</td>
                 </tr>
-                <tr>
-                  <td class="p-2">Perak</td>
-                  <td class="p-2">-</td>
-                  <td class="p-2">×0.01</td>
-                  <td class="p-2">±10%</td>
+                <tr class="hover:bg-gray-50">
+                  <td class="p-3">
+                    <div class="w-8 h-4 rounded bg-gray-300 border border-gray-400"></div>
+                  </td>
+                  <td class="p-3">-</td>
+                  <td class="p-3">×0.01</td>
+                  <td class="p-3">±10%</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <!-- Kalkulator Pembagi Tegangan -->
-          <div class="bg-white shadow rounded-xl p-4">
-            <h3 class="font-bold text-lg mb-2">Kalkulator Pembagi Tegangan</h3>
-            <label class="block">Tegangan Input (Vin):</label>
-            <input type="number" id="vin" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 12" />
+        </div>
+      </section>
 
-            <label class="block">Resistor 1 (R1):</label>
-            <input type="number" id="r1" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 4" />
+      <!-- 3. Simulasi Hukum Ohm -->
+      <section id="Hukum Ohm" class="space-y-4">
+        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Simulasi Hukum Ohm</h2>
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <!-- Panel Input -->
+          <div class="space-y-4 w-full md:w-1/3">
+            <label class="block">Tegangan (Volt): <span id="valTegangan" class="font-bold text-blue-700">0</span>V</label>
+            <input type="range" id="tegangan" min="0" max="50" value="0" class="w-full" />
 
-            <label class="block">Resistor 2 (R2):</label>
-            <input type="number" id="r2" class="border p-2 rounded w-full mb-2" placeholder="Contoh: 6" />
+            <label class="block">Resistansi (Ohm): <span id="valResistansi" class="font-bold text-blue-700">0</span>Ω</label>
+            <input type="range" id="resistansi" min="1" max="100" value="0" class="w-full" />
 
-            <button onclick="hitungPembagi()" class="bg-blue-600 text-white px-4 py-2 rounded w-full">Hitung Tegangan Keluaran</button>
-            <p id="hasilPembagi" class="mt-2 font-semibold text-blue-700"></p>
+            <p id="hasilArus" class="text-lg font-semibold text-blue-700"></p>
+            <button onclick="clearSimulasiHukumOhm()" class="bg-red-500 text-white font-semibold px-4 py-2 rounded w-full mt-2">Clear</button>
+          </div>
+
+          <!-- Panel Grafik -->
+          <div class="w-full md:w-2/3">
+            <canvas id="grafikOhm" class="mt-4 w-full max-h-[300px]"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Simulasi Rangkaian Seri dan Paralel -->
+      <section id="Rangkaian" class="space-y-4">
+        <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Simulasi Rangkaian Seri & Paralel</h2>
+        <div id="simulasi-seri-paralel" class="bg-white shadow rounded-xl p-6 space-y-6">
+          <!-- Input Jumlah Resistor -->
+          <div class="space-y-2">
+            <label for="jumlahResistor" class="block text-sm font-medium text-gray-700">Jumlah Resistor:</label>
+            <input type="number" id="jumlahResistor" min="0" max="10" value="0" class="w-full border p-2 rounded" />
+          </div>
+
+          <!-- Pilih Jenis Rangkaian -->
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700">Jenis Rangkaian:</label>
+            <div class="flex gap-4">
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="jenisRangkaian" value="seri" checked class="accent-blue-600" />
+                Seri
+              </label>
+              <label class="inline-flex items-center gap-2">
+                <input type="radio" name="jenisRangkaian" value="paralel" class="accent-blue-600" />
+                Paralel
+              </label>
+            </div>
+          </div>
+
+          <!-- Input Nilai Resistor -->
+          <div id="resistorInputs" class="grid md:grid-cols-3 gap-4">
+            <!-- Diisi dinamis via JavaScript -->
+          </div>
+
+          <!-- Hasil Perhitungan -->
+          <div class="bg-blue-50 p-4 rounded text-blue-700 font-medium space-y-1">
+            <p>Total Hambatan (Rtotal): <span id="hasilRtotal">-</span> Ω</p>
+            <p>Arus Total (I): <span id="hasilArus">-</span> A</p>
+          </div>
+
+          <!-- Visualisasi Grafik -->
+          <div>
+            <canvas id="grafikSimulasi" class="w-full max-w-3xl mx-auto"></canvas>
+          </div>
+
+          <!-- Bonus Visual Resistor -->
+          <div id="visualResistor" class="flex flex-wrap gap-4 justify-center mt-6">
+            <!-- Diisi dinamis via JavaScript -->
           </div>
         </div>
       </section>
@@ -246,63 +331,223 @@
     </footer>
 
     <script>
-      function hitungArus() {
-        const V = parseFloat(document.getElementById("tegangan").value);
-        const R = parseFloat(document.getElementById("resistansi").value);
-        const hasil = document.getElementById("hasilArus");
-        if (!isNaN(V) && !isNaN(R) && R !== 0) {
-          const I = V / R;
-          hasil.textContent = `Arus yang mengalir: ${I.toFixed(2)} A`;
+      const teganganSlider = document.getElementById("tegangan");
+      const resistansiSlider = document.getElementById("resistansi");
+      const valTegangan = document.getElementById("valTegangan");
+      const valResistansi = document.getElementById("valResistansi");
+      const hasilArus = document.getElementById("hasilArus");
+
+      // Inisialisasi Chart.js
+      const ctx = document.getElementById("grafikOhm").getContext("2d");
+      const grafikOhm = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: "Arus (A)",
+              data: [],
+              borderColor: "rgb(37, 99, 235)",
+              backgroundColor: "rgba(37, 99, 235, 0.2)",
+              tension: 0.4,
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          animation: {
+            duration: 300, // biar cepat saat update slider
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Tegangan (Volt)",
+              },
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: "Arus (Ampere)",
+              },
+            },
+          },
+        },
+      });
+
+      let dataTegangan = [];
+      let dataArus = [];
+
+      function updateSemua() {
+        const V = parseFloat(teganganSlider.value);
+        const R = parseFloat(resistansiSlider.value);
+        const I = parseFloat((V / R).toFixed(2));
+
+        valTegangan.textContent = V;
+        valResistansi.textContent = R;
+        hasilArus.textContent = `Arus: ${I} A`;
+
+        // Simpan data historis ke grafikOhm
+        dataTegangan.push(V);
+        dataArus.push(I);
+
+        if (dataTegangan.length > 30) {
+          // batasi data agar grafikOhm tidak penuh
+          dataTegangan.shift();
+          dataArus.shift();
+        }
+
+        grafikOhm.data.labels = dataTegangan;
+        grafikOhm.data.datasets[0].data = dataArus;
+        grafikOhm.update();
+      }
+
+      // Jalankan saat slider digeser
+      teganganSlider.addEventListener("input", updateSemua);
+      resistansiSlider.addEventListener("input", updateSemua);
+
+      // Jalankan pertama kali
+      updateSemua();
+
+      function clearSimulasiHukumOhm() {
+        // Reset slider ke nilai minimal
+        const teganganSlider = document.getElementById("tegangan");
+        const resistansiSlider = document.getElementById("resistansi");
+
+        teganganSlider.value = 0;
+        resistansiSlider.value = 1;
+
+        // Update nilai teks slider
+        document.getElementById("valTegangan").textContent = "0";
+        document.getElementById("valResistansi").textContent = "1";
+
+        // Kosongkan hasil arus
+        document.getElementById("hasilArus").textContent = "";
+
+        // Reset data chart
+        grafikOhm.data.labels.length = 0;
+        grafikOhm.data.datasets.forEach((dataset) => {
+          dataset.data.length = 0;
+        });
+        updateSemua();
+      }
+
+      // Logika Rangkaian Seri & Parelel
+      const jumlahInput = document.getElementById("jumlahResistor");
+      const resistorContainer = document.getElementById("resistorInputs");
+      const hasilRtotal = document.getElementById("hasilRtotal");
+      const hasilArusR = document.getElementById("hasilArus");
+      const visualResistor = document.getElementById("visualResistor");
+
+      let chart; // Chart.js object
+
+      jumlahInput.addEventListener("input", updateInputFields);
+      document.querySelectorAll("input[name='jenisRangkaian']").forEach((radio) => radio.addEventListener("change", hitungSimulasi));
+
+      function updateInputFields() {
+        const jumlah = parseInt(jumlahInput.value);
+        resistorContainer.innerHTML = "";
+        visualResistor.innerHTML = "";
+
+        for (let i = 0; i < jumlah; i++) {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <label class="block text-sm text-gray-700 mb-1">Resistor ${i + 1} (Ω):</label>
+            <input type="number" min="0.1" step="0.1" class="resistorInput w-full border p-2 rounded" value="10" />
+          `;
+          resistorContainer.appendChild(div);
+        }
+
+        // ⬇ Tambahkan event listener ke setiap input resistor yang baru dibuat
+        document.querySelectorAll(".resistorInput").forEach((input) => {
+          input.addEventListener("input", hitungSimulasi);
+        });
+
+        hitungSimulasi();
+      }
+
+      function hitungSimulasi() {
+        const jenis = document.querySelector("input[name='jenisRangkaian']:checked").value;
+        const resistors = [...document.querySelectorAll(".resistorInput")].map((input) => parseFloat(input.value));
+        const V_total = 12; // Tegangan sumber default
+        let R_total = 0;
+        let arus = 0;
+        let arusPerResistor = [];
+        let teganganPerResistor = [];
+
+        if (jenis === "seri") {
+          R_total = resistors.reduce((a, b) => a + b, 0);
+          arus = V_total / R_total;
+          arusPerResistor = resistors.map(() => arus);
+          teganganPerResistor = resistors.map((R) => arus * R);
         } else {
-          hasil.textContent = "Masukkan nilai valid untuk tegangan dan resistansi (R ≠ 0).";
+          R_total = 1 / resistors.reduce((acc, R) => acc + 1 / R, 0);
+          arus = V_total / R_total;
+          teganganPerResistor = resistors.map(() => V_total);
+          arusPerResistor = resistors.map((R) => V_total / R);
+        }
+
+        hasilRtotal.textContent = R_total.toFixed(2);
+        hasilArusR.textContent = arus.toFixed(2);
+
+        updateChart(jenis === "seri" ? teganganPerResistor : arusPerResistor, jenis);
+        updateVisualResistor(resistors.length);
+      }
+
+      function updateChart(data, jenis) {
+        const label = jenis === "seri" ? "Tegangan per Resistor (V)" : "Arus per Resistor (A)";
+        const labels = data.map((_, i) => `R${i + 1}`);
+
+        const config = {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: label,
+                data: data,
+                backgroundColor: "rgba(59,130,246,0.6)",
+                borderColor: "rgba(59,130,246,1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: jenis === "seri" ? "Volt (V)" : "Ampere (A)",
+                },
+              },
+            },
+          },
+        };
+
+        if (chart) chart.destroy();
+        const ctx = document.getElementById("grafikSimulasi").getContext("2d");
+        chart = new Chart(ctx, config);
+      }
+
+      function updateVisualResistor(jumlah) {
+        visualResistor.innerHTML = "";
+        for (let i = 0; i < jumlah; i++) {
+          visualResistor.innerHTML += `
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-1 bg-gray-500"></div>
+                <div class="w-12 h-6 bg-yellow-400 border border-gray-700 rounded text-center text-xs flex items-center justify-center">R${i + 1}</div>
+                <div class="w-4 h-1 bg-gray-500"></div>
+              </div>`;
         }
       }
 
-      function hitungPembagi() {
-        const vin = parseFloat(document.getElementById("vin").value);
-        const r1 = parseFloat(document.getElementById("r1").value);
-        const r2 = parseFloat(document.getElementById("r2").value);
-        const hasil = document.getElementById("hasilPembagi");
-
-        if (!isNaN(vin) && !isNaN(r1) && !isNaN(r2) && r1 + r2 !== 0) {
-          const vout = vin * (r2 / (r1 + r2));
-          hasil.textContent = `Tegangan keluaran (Volt): ${vout.toFixed(2)} V`;
-        } else {
-          hasil.textContent = "Masukkan nilai valid untuk Vin, R1, dan R2.";
-        }
-      }
-
-      function hitungDaya() {
-        const V = parseFloat(document.getElementById("dayaV").value);
-        const I = parseFloat(document.getElementById("dayaI").value);
-        const hasil = document.getElementById("hasilDaya");
-        if (!isNaN(V) && !isNaN(I)) {
-          const P = V * I;
-          hasil.textContent = `Daya listrik: ${P.toFixed(2)} Watt`;
-        } else {
-          hasil.textContent = "Masukkan tegangan dan arus yang valid.";
-        }
-      }
-
-      function hitungResSeri() {
-        const input = document.getElementById("inputResistor").value;
-        const resistorArray = input
-          .split(",")
-          .map((r) => parseFloat(r.trim()))
-          .filter((r) => !isNaN(r));
-        const total = resistorArray.reduce((acc, val) => acc + val, 0);
-        document.getElementById("hasilResistansi").textContent = `Total resistansi seri: ${total.toFixed(2)} Ω`;
-      }
-
-      function hitungResParalel() {
-        const input = document.getElementById("inputResistor").value;
-        const resistorArray = input
-          .split(",")
-          .map((r) => parseFloat(r.trim()))
-          .filter((r) => !isNaN(r) && r !== 0);
-        const total = 1 / resistorArray.reduce((acc, val) => acc + 1 / val, 0);
-        document.getElementById("hasilResistansi").textContent = `Total resistansi paralel: ${total.toFixed(2)} Ω`;
-      }
+      // Inisialisasi awal
+      updateInputFields();
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </body>
 </html>
