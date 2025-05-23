@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Lily's Café!</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#FFE4C4] min-h-screen flex items-center justify-center">
-  <h1 class="text-4xl font-bold text-brown-700">Welcome to Lily's Café!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Lily's Café!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .bg-logo {
+        background-image: url("../src/img/logo-header-removebg-preview.png");
+        background-size: contain; /* biar nggak kepotong */
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-start justify-center bg-[#FFE4C4]">
+    <div class="w-40 h-40 sm:w-64 bg-logo"></div>
+  </body>
 </html>

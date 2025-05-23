@@ -1,7 +1,19 @@
-<frameset rows="20% , *">
-  <frame name="header" src="./header/"></frame>
-  <frameset cols="20% , *">
-    <frame name="menu" src="./sidebar/"></frame>
-    <frame name="konten" src="./home/"></frame>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Lily's Café - Layout</title>
+</head>
+<frameset rows="20%, *">
+  <frame name="header" src="./header/" scrolling="no" noresize>
+  <frameset cols="20%, *">
+    <frame name="menu" src="./sidebar/" noresize>
+    <frame name="konten" src="./home/">
   </frameset>
 </frameset>
+<noframes>
+  <body>
+    Maaf, browser kamu tidak mendukung frameset.
+  </body>
+</noframes>
+</html>

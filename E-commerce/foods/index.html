@@ -2,155 +2,215 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu Makanan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #fff0f5;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #444;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-title {
+        text-align: center;
+        font-size: 1.6rem;
+        color: #000;
+        margin-top: 40px;
+        position: relative;
+      }
+
+      .menu-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #d63384;
+        margin: 8px auto 0;
+        border-radius: 2px;
+      }
+
+      .menu-table {
+        width: 90%;
+        margin: 20px auto 40px;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .menu-table th,
+      .menu-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #ffd3e4;
+      }
+
+      .menu-table th {
+        background-color: #ffd6e8;
+        color: #c2185b;
+      }
+
+      .menu-table img {
+        width: 100px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .menu-table button {
+        background-color: #f06292;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .menu-table button:hover {
+        background-color: #ec407a;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #ffd6e8;
+        margin-top: 40px;
+      }
+
+      footer a {
+        color: #d63384;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+    </style>
   </head>
-  <body class="bg-pink-50 text-gray-800 font-sans">
+  <body>
     <!-- Menu Nasi -->
-    <section class="py-10">
-      <h2 class="text-center text-3xl font-bold text-black mb-4 relative">
-        🍚 Menu Nasi
-        <span class="block w-16 h-1 bg-pink-600 mx-auto mt-2 rounded"></span>
-      </h2>
-      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
-        <!-- Item -->
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="https://i.pinimg.com/originals/18/d9/99/18d999d97240c26feb8475524bec0ec6.png" alt="Fried Rice" class="w-full h-40 object-cover rounded" />
-          <h3 class="mt-2 font-semibold">Fried Rice</h3>
-          <p class="text-pink-700">Rp15.000</p>
-          <button onclick="addToCart('Fried Rice', 15000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img
-            src="https://images.services.kitchenstories.io/sd8SKJZO6iiWR-ta9dmA8y4rIKo=/1920x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2498-final-photo-_0.jpg"
-            alt="Chicken Katsu Curry Rice"
-            class="w-full h-40 object-cover rounded"
-          />
-          <h3 class="mt-2 font-semibold">Chicken Katsu Curry Rice</h3>
-          <p class="text-pink-700">Rp14.000</p>
-          <button onclick="addToCart('Chicken Katsu Curry Rice', 14000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="https://healthyfitnessmeals.com/wp-content/uploads/2019/02/Teriyaki-chicken-bowls-7.jpg" alt="Teriyaki Chicken" class="w-full h-40 object-cover rounded" />
-          <h3 class="mt-2 font-semibold">Teriyaki Chicken Meal Prep Bowls</h3>
-          <p class="text-pink-700">Rp16.000</p>
-          <button onclick="addToCart('Teriyaki Chicken Meal Prep Bowls', 16000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="https://i.pinimg.com/originals/ec/6a/51/ec6a5163b65c3c9c180aff8c184eb9d1.jpg" alt="Oyakodon" class="w-full h-40 object-cover rounded" />
-          <h3 class="mt-2 font-semibold">Oyakodon (chicken & egg rice bowl)</h3>
-          <p class="text-pink-700">Rp16.000</p>
-          <button onclick="addToCart('Oyakodon (chicken & egg rice bowl)', 16000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img
-            src="https://www.thecountrycook.net/wp-content/uploads/2023/02/thumbnail-Penne-Pasta-with-Tomato-Sauce-scaled.jpg"
-            alt="Penne Pasta"
-            class="w-full h-40 object-cover rounded"
-          />
-          <h3 class="mt-2 font-semibold">Penne Pasta</h3>
-          <p class="text-pink-700">Rp16.000</p>
-          <button onclick="addToCart('Penne Pasta', 16000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-4 text-center">
-          <img src="https://tse3.mm.bing.net/th?id=OIP.FTwrvUt-IRL44LT_3rmrbwHaGX&pid=Api&P=0&h=220" alt="Spaghetti Carbonara" class="w-full h-40 object-cover rounded" />
-          <h3 class="mt-2 font-semibold">Spaghetti Carbonara</h3>
-          <p class="text-pink-700">Rp16.000</p>
-          <button onclick="addToCart('Spaghetti Carbonara', 16000)" class="mt-3 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-        </div>
-      </div>
-    </section>
-    <section class="my-8">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">🍚 Menu Side Dish</h2>
-      <table class="min-w-full table-auto border border-gray-300 rounded-lg overflow-hidden shadow-md">
-        <thead class="bg-pink-100 text-gray-700">
+    <section>
+      <h2 class="menu-title">🍚 Menu Nasi</h2>
+      <table class="menu-table">
+        <thead>
           <tr>
-            <th class="py-3 px-5 text-left">Gambar</th>
-            <th class="py-3 px-5 text-left">Nama</th>
-            <th class="py-3 px-5 text-left">Harga</th>
-            <th class="py-3 px-5 text-left">Aksi</th>
+            <th>Gambar</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Aksi</th>
           </tr>
         </thead>
-        <tbody class="bg-white">
-          <tr class="border-b">
-            <td class="py-4 px-5">
-              <img class="w-24 h-16 object-cover rounded" src="https://i.pinimg.com/originals/18/d9/99/18d999d97240c26feb8475524bec0ec6.png" alt="Fried Rice" />
-            </td>
-            <td class="py-4 px-5">Fried Rice</td>
-            <td class="py-4 px-5">Rp15.000</td>
-            <td class="py-4 px-5"><button onclick="addToCart('Fried Rice', 15000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button></td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-4 px-5">
-              <img
-                class="w-24 h-16 object-cover rounded"
-                src="https://images.services.kitchenstories.io/sd8SKJZO6iiWR-ta9dmA8y4rIKo=/1920x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2498-final-photo-_0.jpg"
-                alt="Chicken Katsu Curry Rice"
-              />
-            </td>
-            <td class="py-4 px-5">Chicken Katsu Curry Rice</td>
-            <td class="py-4 px-5">Rp14.000</td>
-            <td class="py-4 px-5">
-              <button onclick="addToCart('Chicken Katsu Curry Rice', 14000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-            </td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-4 px-5">
-              <img
-                class="w-24 h-16 object-cover rounded"
-                src="https://healthyfitnessmeals.com/wp-content/uploads/2019/02/Teriyaki-chicken-bowls-7.jpg"
-                alt="Teriyaki Chicken Meal Prep Bowls"
-              />
-            </td>
-            <td class="py-4 px-5">Teriyaki Chicken Meal Prep Bowls</td>
-            <td class="py-4 px-5">Rp16.000</td>
-            <td class="py-4 px-5">
-              <button onclick="addToCart('Teriyaki Chicken Meal Prep Bowls', 16000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-            </td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-4 px-5">
-              <img class="w-24 h-16 object-cover rounded" src="https://i.pinimg.com/originals/ec/6a/51/ec6a5163b65c3c9c180aff8c184eb9d1.jpg" alt="Oyakodon" />
-            </td>
-            <td class="py-4 px-5">Oyakodon (chicken & egg rice bowl)</td>
-            <td class="py-4 px-5">Rp16.000</td>
-            <td class="py-4 px-5">
-              <button onclick="addToCart('Oyakodon (chicken & egg rice bowl)', 16000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-            </td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-4 px-5">
-              <img
-                class="w-24 h-16 object-cover rounded"
-                src="https://www.thecountrycook.net/wp-content/uploads/2023/02/thumbnail-Penne-Pasta-with-Tomato-Sauce-scaled.jpg"
-                alt="Penne Pasta"
-              />
-            </td>
-            <td class="py-4 px-5">Penne Pasta</td>
-            <td class="py-4 px-5">Rp16.000</td>
-            <td class="py-4 px-5"><button onclick="addToCart('Penne Pasta', 16000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button></td>
+        <tbody>
+          <tr>
+            <td><img src="https://i.pinimg.com/originals/18/d9/99/18d999d97240c26feb8475524bec0ec6.png" alt="Fried Rice" /></td>
+            <td>Fried Rice</td>
+            <td>Rp15.000</td>
+            <td><button onclick="addToCart('Fried Rice', 15000)">Beli 🛒</button></td>
           </tr>
           <tr>
-            <td class="py-4 px-5">
-              <img class="w-24 h-16 object-cover rounded" src="https://tse3.mm.bing.net/th?id=OIP.FTwrvUt-IRL44LT_3rmrbwHaGX&pid=Api&P=0&h=220" alt="Spaghetti Carbonara" />
+            <td>
+              <img
+                src="https://images.services.kitchenstories.io/sd8SKJZO6iiWR-ta9dmA8y4rIKo=/1920x0/filters:quality(85)/images.kitchenstories.io/wagtailOriginalImages/R2498-final-photo-_0.jpg"
+                alt="Chichken Katsu Curry Rice"
+              />
             </td>
-            <td class="py-4 px-5">Spaghetti Carbonara</td>
-            <td class="py-4 px-5">Rp16.000</td>
-            <td class="py-4 px-5"><button onclick="addToCart('Spaghetti Carbonara', 16000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button></td>
+            <td>Chichken Katsu Curry Rice</td>
+            <td>Rp14.000</td>
+            <td><button onclick="addToCart('Chichken Katsu Curry Rice', 14000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://healthyfitnessmeals.com/wp-content/uploads/2019/02/Teriyaki-chicken-bowls-7.jpg" alt="Teriyaki Chicken Meal Prep Bowls" /></td>
+            <td>Teriyaki Chicken Meal Prep Bowls</td>
+            <td>Rp16.000</td>
+            <td><button onclick="addToCart('Teriyaki Chicken Meal Prep Bowls', 16000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://i.pinimg.com/originals/ec/6a/51/ec6a5163b65c3c9c180aff8c184eb9d1.jpg" alt="Oyakodon (chicken & egg rice bowl)" /></td>
+            <td>Oyakodon (chicken & egg rice bowl)</td>
+            <td>Rp16.000</td>
+            <td><button onclick="addToCart('Oyakodon (chicken & egg rice bowl)', 16000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://www.thecountrycook.net/wp-content/uploads/2023/02/thumbnail-Penne-Pasta-with-Tomato-Sauce-scaled.jpg" alt="Penne Pasta" /></td>
+            <td>Penne Pasta</td>
+            <td>Rp16.000</td>
+            <td><button onclick="addToCart('Penne Pasta', 16000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://tse3.mm.bing.net/th?id=OIP.FTwrvUt-IRL44LT_3rmrbwHaGX&pid=Api&P=0&h=220" alt="Spaghetti Carbonara" /></td>
+            <td>Spaghetti Carbonara</td>
+            <td>Rp16.000</td>
+            <td><button onclick="addToCart('Spaghetti Carbonara', 16000)">Beli 🛒</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Side Dish -->
+    <section>
+      <h2 class="menu-title">🍗 Side Dish</h2>
+      <table class="menu-table">
+        <thead>
+          <tr>
+            <th>Gambar</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img
+              src="https://www.seriouseats.com/thmb/o94pqlhYlIMrT3KFLIPhs09chDo=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20200122-gimbap-vicky-wasik-24-f5ed1075f35846a29e0812ee053a1bf8.jpg"
+              alt="Kimbab"">
+            </td>
+            <td>Kimbab</td>
+            <td>Rp10.000</td>
+            <td><button onclick="addToCart('Kimbab', 10000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://ik.imagekit.io/tvlk/blog/2021/01/Tteokbokki-shutterstock_1830614987-1024x682.jpeg?tr=dpr-2,w-675" alt="Ttteokbokki" /></td>
+            <td>Ttteokbokki</td>
+            <td>Rp5.000</td>
+            <td><button onclick="addToCart('Ttteokbokki', 5000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://tse3.mm.bing.net/th?id=OIP.8goP_QmtnU4oVEFqe8ia-gHaE8&pid=Api&P=0&h=220" alt="French Fries" /></td>
+            <td>French Fries</td>
+            <td>Rp4.000</td>
+            <td><button onclick="addToCart('French Fries', 4000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://i.ytimg.com/vi/imi8YDvyWn0/maxresdefault.jpg" alt="Corndog" /></td>
+            <td>Corndog</td>
+            <td>Rp4.000</td>
+            <td><button onclick="addToCart('Corndog', 4000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://i.pinimg.com/originals/21/36/6c/21366c5d6706136b8b2ee0ebc8c6e109.jpg" alt="Croissant" /></td>
+            <td>Croissant</td>
+            <td>Rp4.000</td>
+            <td><button onclick="addToCart('Croissant', 4000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://mymorningmocha.com/wp-content/uploads/2023/09/croffle-recipe.jpg" alt="Croffle" /></td>
+            <td>Croffle</td>
+            <td>Rp4.000</td>
+            <td><button onclick="addToCart('Croffle', 4000)">Beli 🛒</button></td>
+          </tr>
+          <tr>
+            <td><img src="https://i.pinimg.com/originals/53/cd/2a/53cd2a112784d584508fa00de022c92f.png" alt="Cheseecake" /></td>
+            <td>Cheesecake</td>
+            <td>Rp4.000</td>
+            <td><button onclick="addToCart('Cheseecake', 4000)">Beli 🛒</button></td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-6 bg-pink-100 mt-10">
-      <a href="keranjang.html" class="text-pink-700 hover:underline text-lg">🛒 Lihat Keranjang</a>
+    <footer>
+      <a href="keranjang.html">🛒 Lihat Keranjang</a>
     </footer>
 
     <!-- Script -->
