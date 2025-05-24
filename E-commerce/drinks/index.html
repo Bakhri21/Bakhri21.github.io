@@ -1,90 +1,107 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drinks Menu</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#FFF5E1] font-sans">
-  <header class="text-center py-6">
-    <h1 class="text-4xl font-bold text-gray-800 relative inline-block">
-      Drinks Menu
-      <span class="block w-16 h-1 bg-pink-600 mx-auto mt-2 rounded-full"></span>
-    </h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drinks Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #fff0f5;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <header class="text-center py-6">
+      <h1 class="text-4xl font-bold text-gray-800 relative inline-block">
+        Drinks Menu
+        <span class="block w-16 h-1 bg-pink-600 mx-auto mt-2 rounded-full"></span>
+      </h1>
+    </header>
 
-  <div class="flex flex-wrap justify-center gap-6 px-6 pb-12">
-    <!-- Card Template Start -->
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://4.bp.blogspot.com/-2_z_XRbIam4/XnzxUnrhUMI/AAAAAAAABms/tnYIt593eY0qHdeUvVlhyJx9agNxZW8_QCLcBGAsYHQ/s1600/Es%2Bjeruk.jpg" alt="Orange Juice" class="w-full h-40 object-cover rounded mb-3">
-      <h3 class="text-lg font-semibold text-center">Orange Juice</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp7.000</p>
-      <button onclick="addToCart('Orange Juice', 7000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+    <div class="flex flex-wrap justify-center gap-6 px-6 pb-12">
+      <!-- Card Template Start -->
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img
+          src="https://4.bp.blogspot.com/-2_z_XRbIam4/XnzxUnrhUMI/AAAAAAAABms/tnYIt593eY0qHdeUvVlhyJx9agNxZW8_QCLcBGAsYHQ/s1600/Es%2Bjeruk.jpg"
+          alt="Orange Juice"
+          class="w-full h-40 object-cover rounded mb-3"
+        />
+        <h3 class="text-lg font-semibold text-center">Orange Juice</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp7.000</p>
+        <button onclick="addToCart('Orange Juice', 7000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img src="https://betv.disway.id/upload/672c491df9473515968c1d1c0c92a042.jpg" alt="Iced Coconut" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="text-lg font-semibold text-center">Iced Coconut</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp5.000</p>
+        <button onclick="addToCart('Iced Coconut', 5000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img src="https://decoratedtreats.com/wp-content/uploads/2022/07/lychee-lemonade-recipe-13.jpg" alt="Lychee Lemonade" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="text-lg font-semibold text-center">Lychee Lemonade</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp12.000</p>
+        <button onclick="addToCart('Lychee Lemonade', 12000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img src="https://i.pinimg.com/originals/2d/cc/0f/2dcc0fabfe58ac41433f0464778a26b1.jpg" alt="Chocolate Smoothie" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="text-lg font-semibold text-center">Chocolate Smoothie</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp13.000</p>
+        <button onclick="addToCart('Chocolate Smoothie', 13000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img
+          src="https://www.tablefortwoblog.com/wp-content/uploads/2022/06/cookies-and-creme-milkshake-recipe-photo-tablefortwoblog-1-scaled.jpg"
+          alt="Cookies & Cream Smoothie"
+          class="w-full h-40 object-cover rounded mb-3"
+        />
+        <h3 class="text-lg font-semibold text-center">Cookies & Cream Smoothie</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
+        <button onclick="addToCart('Cookies & Cream Smoothie', 15000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img
+          src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/strawberry-banana-smoothie-4.jpg"
+          alt="Strawberry Smoothie"
+          class="w-full h-40 object-cover rounded mb-3"
+        />
+        <h3 class="text-lg font-semibold text-center">Strawberry Smoothie</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
+        <button onclick="addToCart('Strawberry Smoothie', 15000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img src="https://thecinnamonjar.com/wp-content/uploads/2024/01/Milo-dinosaur-15-of-3.jpg" alt="Milo Dinosaurus" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="text-lg font-semibold text-center">Milo Dinosaurus</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp13.000</p>
+        <button onclick="addToCart('Milo Dinosaurus', 13000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+
+      <div class="flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
+        <img src="https://cdn.loveandlemons.com/wp-content/uploads/2023/06/iced-matcha-latte.jpg" alt="Matcha Latte" class="w-full h-40 object-cover rounded mb-3" />
+        <h3 class="text-lg font-semibold text-center">Matcha Latte</h3>
+        <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
+        <button onclick="addToCart('Matcha Latte', 15000)" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded">Beli 🛒</button>
+      </div>
+      <!-- Card Template End -->
     </div>
 
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://betv.disway.id/upload/672c491df9473515968c1d1c0c92a042.jpg" alt="Iced Coconut" class="w-full h-40 object-cover rounded mb-3">
-      <h3 class="text-lg font-semibold text-center">Iced Coconut</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp5.000</p>
-      <button onclick="addToCart('Iced Coconut', 5000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
+    <footer class="text-center mb-6">
+      <a href="keranjang.html" class="text-pink-600 hover:underline text-lg">🛒 Lihat Keranjang</a>
+    </footer>
 
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://decoratedtreats.com/wp-content/uploads/2022/07/lychee-lemonade-recipe-13.jpg" alt="Lychee Lemonade" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Lychee Lemonade</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp12.000</p>
-      <button onclick="addToCart('Lychee Lemonade', 12000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://i.pinimg.com/originals/2d/cc/0f/2dcc0fabfe58ac41433f0464778a26b1.jpg" alt="Chocolate Smoothie" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Chocolate Smoothie</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp13.000</p>
-      <button onclick="addToCart('Chocolate Smoothie', 13000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://www.tablefortwoblog.com/wp-content/uploads/2022/06/cookies-and-creme-milkshake-recipe-photo-tablefortwoblog-1-scaled.jpg" alt="Cookies & Cream Smoothie" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Cookies & Cream Smoothie</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
-      <button onclick="addToCart('Cookies & Cream Smoothie', 15000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://www.dinneratthezoo.com/wp-content/uploads/2018/05/strawberry-banana-smoothie-4.jpg" alt="Strawberry Smoothie" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Strawberry Smoothie</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
-      <button onclick="addToCart('Strawberry Smoothie', 15000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://thecinnamonjar.com/wp-content/uploads/2024/01/Milo-dinosaur-15-of-3.jpg" alt="Milo Dinosaurus" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Milo Dinosaurus</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp13.000</p>
-      <button onclick="addToCart('Milo Dinosaurus', 13000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-
-    <div class=" flex w-auto h-auto flex-col bg-white w-60 p-4 rounded-lg shadow hover:-translate-y-1 transition justify-center">
-      <img src="https://cdn.loveandlemons.com/wp-content/uploads/2023/06/iced-matcha-latte.jpg" alt="Matcha Latte" class="w-full h-40 object-cover rounded mb-3">
-       <h3 class="text-lg font-semibold text-center">Matcha Latte</h3>
-      <p class="text-gray-600 mb-2 text-center">Rp15.000</p>
-      <button onclick="addToCart('Matcha Latte', 15000)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded">Beli 🛒</button>
-    </div>
-    <!-- Card Template End -->
-  </div>
-
-  <footer class="text-center mb-6">
-    <a href="keranjang.html" class="text-pink-600 hover:underline text-lg">🛒 Lihat Keranjang</a>
-  </footer>
-
-  <script>
-    function addToCart(name, price) {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push({ name: name, price: price });
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(name + " ditambahkan ke keranjang!");
-    }
-  </script>
-</body>
+    <script>
+      function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ name: name, price: price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(name + " ditambahkan ke keranjang!");
+      }
+    </script>
+  </body>
 </html>

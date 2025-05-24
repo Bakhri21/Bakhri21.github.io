@@ -85,6 +85,7 @@
         font-size: 1.1rem;
       }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <!-- Menu Nasi -->
@@ -102,7 +103,14 @@
         <tbody>
           <tr>
             <td><img src="https://i.pinimg.com/originals/18/d9/99/18d999d97240c26feb8475524bec0ec6.png" alt="Fried Rice" /></td>
-            <td>Fried Rice</td>
+            <td class="">
+              <p
+                class="cursor-pointer"
+                onclick="openModal('Fried Rice', 'Nasi goreng khas Asia yang dimasak dengan bumbu gurih, sayuran segar, dan telur. Cocok disantap kapan saja sebagai hidangan utama yang mengenyangkan.')"
+              >
+                Fried Rice
+              </p>
+            </td>
             <td>Rp15.000</td>
             <td><button onclick="addToCart('Fried Rice', 15000)">Beli 🛒</button></td>
           </tr>
@@ -113,31 +121,56 @@
                 alt="Chichken Katsu Curry Rice"
               />
             </td>
-            <td>Chichken Katsu Curry Rice</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Chichken Katsu Curry Rice', 'Nasi hangat disajikan dengan chicken katsu renyah dan siraman kuah kari Jepang yang kaya rempah dan gurih. Kombinasi sempurna untuk pecinta rasa autentik Jepang.')"
+            >
+              Chichken Katsu Curry Rice
+            </td>
             <td>Rp14.000</td>
             <td><button onclick="addToCart('Chichken Katsu Curry Rice', 14000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://healthyfitnessmeals.com/wp-content/uploads/2019/02/Teriyaki-chicken-bowls-7.jpg" alt="Teriyaki Chicken Meal Prep Bowls" /></td>
-            <td>Teriyaki Chicken Meal Prep Bowls</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Teriyaki Chicken Meal Prep Bowls', 'Potongan ayam panggang dengan saus teriyaki manis gurih, disajikan dalam mangkuk bersama nasi, jagung manis, dan sayuran segar. Praktis dan seimbang untuk santapan harian.')"
+            >
+              Teriyaki Chicken Meal Prep Bowls
+            </td>
             <td>Rp16.000</td>
             <td><button onclick="addToCart('Teriyaki Chicken Meal Prep Bowls', 16000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://i.pinimg.com/originals/ec/6a/51/ec6a5163b65c3c9c180aff8c184eb9d1.jpg" alt="Oyakodon (chicken & egg rice bowl)" /></td>
-            <td>Oyakodon (chicken & egg rice bowl)</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Oyakodon chicken & egg rice bowl', 'Hidangan klasik Jepang berupa nasi hangat dengan ayam dan telur yang dimasak bersama saus dashi, kecap asin, dan mirin. Lembut dan menghangatkan, cocok dinikmati saat butuh kenyamanan.')"
+            >
+              Oyakodon (chicken & egg rice bowl)
+            </td>
             <td>Rp16.000</td>
             <td><button onclick="addToCart('Oyakodon (chicken & egg rice bowl)', 16000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://www.thecountrycook.net/wp-content/uploads/2023/02/thumbnail-Penne-Pasta-with-Tomato-Sauce-scaled.jpg" alt="Penne Pasta" /></td>
-            <td>Penne Pasta</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Penne Pasta', 'Pasta penne yang dimasak al dente dengan saus pilihan baik itu saus tomat segar atau creamy disempurnakan dengan taburan keju parmesan. Sederhana tapi memikat.')"
+            >
+              Penne Pasta
+            </td>
             <td>Rp16.000</td>
             <td><button onclick="addToCart('Penne Pasta', 16000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://tse3.mm.bing.net/th?id=OIP.FTwrvUt-IRL44LT_3rmrbwHaGX&pid=Api&P=0&h=220" alt="Spaghetti Carbonara" /></td>
-            <td>Spaghetti Carbonara</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Spaghetti Carbonara', 'Spaghetti yang dimasak dengan saus creamy berbasis telur dan keju, ditambah potongan daging asap gurih. Sajian khas Italia yang kaya rasa dan menggugah selera.')"
+            >
+              Spaghetti Carbonara
+            </td>
             <td>Rp16.000</td>
             <td><button onclick="addToCart('Spaghetti Carbonara', 16000)">Beli 🛒</button></td>
           </tr>
@@ -161,52 +194,97 @@
           <tr>
             <td>
               <img
-              src="https://www.seriouseats.com/thmb/o94pqlhYlIMrT3KFLIPhs09chDo=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20200122-gimbap-vicky-wasik-24-f5ed1075f35846a29e0812ee053a1bf8.jpg"
-              alt="Kimbab"">
+                src="https://www.seriouseats.com/thmb/o94pqlhYlIMrT3KFLIPhs09chDo=/1500x1125/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__01__20200122-gimbap-vicky-wasik-24-f5ed1075f35846a29e0812ee053a1bf8.jpg"
+                alt="Kimbab"
+              />
             </td>
-            <td>Kimbab</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Kimbab', 'Gulungan nasi khas Korea yang diisi dengan wortel, bayam, telur, dan daging atau crab stick, lalu dibungkus rumput laut. Dipotong kecil-kecil, praktis buat camilan atau teman makan utama.')"
+            >
+              Kimbab
+            </td>
             <td>Rp10.000</td>
             <td><button onclick="addToCart('Kimbab', 10000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://ik.imagekit.io/tvlk/blog/2021/01/Tteokbokki-shutterstock_1830614987-1024x682.jpeg?tr=dpr-2,w-675" alt="Ttteokbokki" /></td>
-            <td>Ttteokbokki</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Tteokbokki', 'Camilan populer Korea berupa kue beras kenyal yang dimasak dalam saus gochujang pedas manis. Bisa ditambah odeng (fishcake) dan taburan biji wijen untuk rasa yang lebih kaya.')"
+            >
+              Tteokbokki
+            </td>
             <td>Rp5.000</td>
             <td><button onclick="addToCart('Ttteokbokki', 5000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://tse3.mm.bing.net/th?id=OIP.8goP_QmtnU4oVEFqe8ia-gHaE8&pid=Api&P=0&h=220" alt="French Fries" /></td>
-            <td>French Fries</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('French Fries', 'Kentang goreng renyah dengan potongan lurus klasik, digoreng keemasan dan ditaburi garam halus. Cocok dinikmati sendiri atau sebagai pelengkap menu utama.')"
+            >
+              French Fries
+            </td>
             <td>Rp4.000</td>
             <td><button onclick="addToCart('French Fries', 4000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://i.ytimg.com/vi/imi8YDvyWn0/maxresdefault.jpg" alt="Corndog" /></td>
-            <td>Corndog</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Corndog', 'Sosis (kadang berisi keju juga) yang ditusuk, dilapisi adonan tepung, lalu digoreng hingga garing. Bisa ditambahkan gula halus di luar atau cocolan saus sesuai selera.')"
+            >
+              Corndog
+            </td>
             <td>Rp4.000</td>
             <td><button onclick="addToCart('Corndog', 4000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://i.pinimg.com/originals/21/36/6c/21366c5d6706136b8b2ee0ebc8c6e109.jpg" alt="Croissant" /></td>
-            <td>Croissant</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Croissant', 'Roti lapis berlapis-lapis khas Prancis dengan tekstur renyah di luar dan empuk di dalam. Bisa dinikmati polos, dengan mentega, atau isian seperti cokelat atau keju.')"
+            >
+              Croissant
+            </td>
             <td>Rp4.000</td>
             <td><button onclick="addToCart('Croissant', 4000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://mymorningmocha.com/wp-content/uploads/2023/09/croffle-recipe.jpg" alt="Croffle" /></td>
-            <td>Croffle</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Croffle', 'Croissant yang dimasak dengan alat waffle, menghasilkan tekstur luar yang renyah dan bagian dalam yang tetap lembut. Cocok disajikan dengan madu, selai, atau es krim.')"
+            >
+              Croffle
+            </td>
             <td>Rp4.000</td>
             <td><button onclick="addToCart('Croffle', 4000)">Beli 🛒</button></td>
           </tr>
           <tr>
             <td><img src="https://i.pinimg.com/originals/53/cd/2a/53cd2a112784d584508fa00de022c92f.png" alt="Cheseecake" /></td>
-            <td>Cheesecake</td>
+            <td
+              class="cursor-pointer"
+              onclick="openModal('Cheesecake', 'Kue bertekstur lembut dengan rasa keju yang ringan dan manis seimbang. Biasanya disajikan dingin, bisa diberi topping buah, krim, atau saus karamel sesuai selera.')"
+            >
+              Cheesecake
+            </td>
             <td>Rp4.000</td>
             <td><button onclick="addToCart('Cheseecake', 4000)">Beli 🛒</button></td>
           </tr>
         </tbody>
       </table>
     </section>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+      <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full relative">
+        <h2 id="modal-title" class="text-xl font-bold text-gray-800 mb-2"></h2>
+        <p id="modal-desc" class="text-gray-600 mb-4"></p>
+        <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-2xl font-bold">&times;</button>
+        <button onclick="closeModal()" class="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">Tutup</button>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -215,11 +293,25 @@
 
     <!-- Script -->
     <script>
+      function openModal(title, desc) {
+        document.getElementById("modal-title").textContent = title;
+        document.getElementById("modal-desc").textContent = desc;
+        const modal = document.getElementById("modal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
       function addToCart(name, price) {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         cart.push({ name: name, price: price });
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert(name + " ditambahkan ke keranjang!");
+        alert(`${name} seharga Rp${price} telah ditambahkan ke keranjang!`);
       }
     </script>
   </body>
