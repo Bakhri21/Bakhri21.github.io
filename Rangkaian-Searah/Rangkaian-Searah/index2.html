@@ -133,41 +133,10 @@
           <div class="bg-white shadow rounded-xl p-4">
             <h3 class="font-bold text-lg mb-2"><i class="fas fa-project-diagram text-green-500"></i> Jenis Rangkaian</h3>
             <img src="../src/img/Rangkaian.jpg" alt="Jenis Rangkaian" class="w-full mt-2" />
-            <ul class="list-disc ml-4 space-y-4">
-              <li>
-                <strong>Seri:</strong> Komponen disusun dalam satu jalur.
-                <ul class="list-disc ml-6 mt-1 text-sm text-gray-700 space-y-1">
-                  <li>
-                    Arus: Sama di setiap komponen → <code>I<sub>total</sub> = I₁ = I₂ = ...</code>
-                  </li>
-                  <li>
-                    Tegangan: Terbagi → <code>V<sub>total</sub> = V₁ + V₂ + ...</code>
-                  </li>
-                  <li>
-                    Resistansi total: <code>R<sub>total</sub> = R₁ + R₂ + ...</code>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <strong>Paralel:</strong> Komponen memiliki jalur masing-masing.
-                <ul class="list-disc ml-6 mt-1 text-sm text-gray-700 space-y-1">
-                  <li>
-                    Tegangan: Sama di semua cabang → <code>V<sub>total</sub> = V₁ = V₂ = ...</code>
-                  </li>
-                  <li>
-                    Arus: Terbagi → <code>I<sub>total</sub> = I₁ + I₂ + ...</code>
-                  </li>
-                  <li>
-                    Resistansi total: <code>1/R<sub>total</sub> = 1/R₁ + 1/R₂ + ...</code>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <strong>Kombinasi:</strong> Gabungan antara rangkaian seri dan paralel.
-                <ul class="list-disc ml-6 mt-1 text-sm text-gray-700">
-                  <li>Gunakan prinsip dasar seri dan paralel untuk menyederhanakan langkah demi langkah.</li>
-                </ul>
-              </li>
+            <ul class="list-disc ml-4 space-y-2">
+              <li><strong>Seri:</strong> Komponen disusun satu jalur, arus sama, tegangan terbagi.</li>
+              <li><strong>Paralel:</strong> Komponen memiliki jalur masing-masing, tegangan sama, arus terbagi.</li>
+              <li><strong>Kombinasi:</strong> Gabungan antara seri dan paralel.</li>
             </ul>
           </div>
         </div>
@@ -318,91 +287,9 @@
         </div>
       </section>
 
-      <!-- Simulasi Hitung Resistor 3 Warna -->
-      <section id="simulasi" class="bg-white shadow rounded-xl p-6 space-y-4 mt-8">
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="fas fa-calculator text-blue-500"></i>
-          Simulasi Hitung Resistor (3 Pita Warna)
-        </h3>
-
-        <div class="grid md:grid-cols-3 gap-4 items-center">
-          <!-- Pilihan Warna -->
-          <div>
-            <label class="block font-medium mb-1">Pita 1 (Angka Pertama)</label>
-            <select id="band1" class="w-full border rounded px-3 py-2">
-              <option value="0">Hitam</option>
-              <option value="1">Cokelat</option>
-              <option value="2">Merah</option>
-              <option value="3">Oranye</option>
-              <option value="4">Kuning</option>
-              <option value="5">Hijau</option>
-              <option value="6">Biru</option>
-              <option value="7">Ungu</option>
-              <option value="8">Abu-abu</option>
-              <option value="9">Putih</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-medium mb-1">Pita 2 (Angka Kedua)</label>
-            <select id="band2" class="w-full border rounded px-3 py-2">
-              <option value="0">Hitam</option>
-              <option value="1">Cokelat</option>
-              <option value="2">Merah</option>
-              <option value="3">Oranye</option>
-              <option value="4">Kuning</option>
-              <option value="5">Hijau</option>
-              <option value="6">Biru</option>
-              <option value="7">Ungu</option>
-              <option value="8">Abu-abu</option>
-              <option value="9">Putih</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-medium mb-1">Pita 3 (Pengali)</label>
-            <select id="multiplier" class="w-full border rounded px-3 py-2">
-              <option value="1">×1 (Hitam)</option>
-              <option value="10">×10 (Cokelat)</option>
-              <option value="100">×100 (Merah)</option>
-              <option value="1000">×1K (Oranye)</option>
-              <option value="10000">×10K (Kuning)</option>
-              <option value="100000">×100K (Hijau)</option>
-              <option value="1000000">×1M (Biru)</option>
-              <option value="10000000">×10M (Ungu)</option>
-              <option value="100000000">×100M (Abu-abu)</option>
-              <option value="1000000000">×1G (Putih)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Tombol dan Hasil -->
-        <div class="mt-4 space-y-3">
-          <button onclick="hitungResistor()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Hitung Nilai Resistor</button>
-
-          <!-- Keterangan Rumus -->
-          <div class="bg-yellow-100 border border-yellow-400 text-yellow-800 text-sm p-3 rounded">
-            <strong>Rumus:</strong> (Angka Pita 1 × 10 + Angka Pita 2) × Pengali <br />
-            Contoh: Cokelat (1), Merah (2), Oranye (×1000) → (1×10 + 2) × 1000 = <strong>12.000 Ω (12 KΩ)</strong>
-          </div>
-
-          <!-- Hasil -->
-          <p id="hasil" class="font-semibold text-green-600 text-lg"></p>
-        </div>
-      </section>
-
       <!-- 3. Simulasi Hukum Ohm -->
-      <section class="space-y-4">
+      <section id="simulasi" class="space-y-4">
         <h2 class="text-2xl font-semibold border-b border-blue-700 pb-2 text-blue-700">Simulasi Hukum Ohm</h2>
-
-        <!-- Keterangan Rumus -->
-        <div class="bg-blue-50 p-4 rounded text-blue-800 text-sm">
-          <p><strong>Hukum Ohm:</strong> <code>I = V / R</code></p>
-          <ul class="list-disc ml-5 mt-2 space-y-1">
-            <li><strong>I</strong> = Arus listrik (Ampere)</li>
-            <li><strong>V</strong> = Tegangan (Volt)</li>
-            <li><strong>R</strong> = Resistansi (Ohm)</li>
-          </ul>
-        </div>
-
         <div class="bg-white p-6 rounded-xl shadow space-y-4 w-full md:w-1/2">
           <label class="block text-sm font-medium text-gray-700">Tegangan (Volt):</label>
           <input type="number" id="inputTegangan" min="0" class="w-full border p-2 rounded" />
@@ -458,11 +345,67 @@
             <!-- Diisi dinamis via JavaScript -->
           </div>
         </div>
-        <!-- Keterangan Rumus -->
-        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded text-sm text-yellow-800">
-          <strong>Rumus Total Hambatan:</strong><br />
-          <span class="block mt-1"> <strong>Rangkaian Seri:</strong> R<sub>total</sub> = R₁ + R₂ + R₃ + ... + R<sub>n</sub> </span>
-          <span class="block mt-1"> <strong>Rangkaian Paralel:</strong> 1/R<sub>total</sub> = 1/R₁ + 1/R₂ + 1/R₃ + ... + 1/R<sub>n</sub> </span>
+      </section>
+      <!-- Simulasi Hitung Resistor 3 Warna -->
+      <section class="bg-white shadow rounded-xl p-6 space-y-4 mt-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-calculator text-blue-500"></i>
+          Simulasi Hitung Resistor (3 Pita Warna)
+        </h3>
+
+        <div class="grid md:grid-cols-3 gap-4 items-center">
+          <!-- Pilihan Warna -->
+          <div>
+            <label class="block font-medium mb-1">Pita 1 (Angka Pertama)</label>
+            <select id="band1" class="w-full border rounded px-3 py-2">
+              <option value="0">Hitam</option>
+              <option value="1">Cokelat</option>
+              <option value="2">Merah</option>
+              <option value="3">Oranye</option>
+              <option value="4">Kuning</option>
+              <option value="5">Hijau</option>
+              <option value="6">Biru</option>
+              <option value="7">Ungu</option>
+              <option value="8">Abu-abu</option>
+              <option value="9">Putih</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium mb-1">Pita 2 (Angka Kedua)</label>
+            <select id="band2" class="w-full border rounded px-3 py-2">
+              <option value="0">Hitam</option>
+              <option value="1">Cokelat</option>
+              <option value="2">Merah</option>
+              <option value="3">Oranye</option>
+              <option value="4">Kuning</option>
+              <option value="5">Hijau</option>
+              <option value="6">Biru</option>
+              <option value="7">Ungu</option>
+              <option value="8">Abu-abu</option>
+              <option value="9">Putih</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-medium mb-1">Pita 3 (Pengali)</label>
+            <select id="multiplier" class="w-full border rounded px-3 py-2">
+              <option value="1">×1 (Hitam)</option>
+              <option value="10">×10 (Cokelat)</option>
+              <option value="100">×100 (Merah)</option>
+              <option value="1000">×1K (Oranye)</option>
+              <option value="10000">×10K (Kuning)</option>
+              <option value="100000">×100K (Hijau)</option>
+              <option value="1000000">×1M (Biru)</option>
+              <option value="10000000">×10M (Ungu)</option>
+              <option value="100000000">×100M (Abu-abu)</option>
+              <option value="1000000000">×1G (Putih)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tombol dan Hasil -->
+        <div class="mt-4">
+          <button onclick="hitungResistor()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Hitung Nilai Resistor</button>
+          <p id="hasil" class="mt-4 font-semibold text-green-600 text-lg"></p>
         </div>
       </section>
     </main>
