@@ -318,73 +318,42 @@
         </div>
       </section>
 
-      <!-- Simulasi Hitung Resistor 3 Warna -->
       <section id="simulasi" class="bg-white shadow rounded-xl p-6 space-y-4 mt-8">
         <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
           <i class="fas fa-calculator text-blue-500"></i>
-          Simulasi Hitung Resistor (3 Pita Warna)
+          Simulasi Hitung Resistor (3 / 4 / 5 Pita Warna)
         </h3>
 
-        <div class="grid md:grid-cols-3 gap-4 items-center">
-          <!-- Pilihan Warna -->
-          <div>
-            <label class="block font-medium mb-1">Pita 1 (Angka Pertama)</label>
-            <select id="band1" class="w-full border rounded px-3 py-2">
-              <option value="0">Hitam</option>
-              <option value="1">Cokelat</option>
-              <option value="2">Merah</option>
-              <option value="3">Oranye</option>
-              <option value="4">Kuning</option>
-              <option value="5">Hijau</option>
-              <option value="6">Biru</option>
-              <option value="7">Ungu</option>
-              <option value="8">Abu-abu</option>
-              <option value="9">Putih</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-medium mb-1">Pita 2 (Angka Kedua)</label>
-            <select id="band2" class="w-full border rounded px-3 py-2">
-              <option value="0">Hitam</option>
-              <option value="1">Cokelat</option>
-              <option value="2">Merah</option>
-              <option value="3">Oranye</option>
-              <option value="4">Kuning</option>
-              <option value="5">Hijau</option>
-              <option value="6">Biru</option>
-              <option value="7">Ungu</option>
-              <option value="8">Abu-abu</option>
-              <option value="9">Putih</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-medium mb-1">Pita 3 (Pengali)</label>
-            <select id="multiplier" class="w-full border rounded px-3 py-2">
-              <option value="1">×1 (Hitam)</option>
-              <option value="10">×10 (Cokelat)</option>
-              <option value="100">×100 (Merah)</option>
-              <option value="1000">×1K (Oranye)</option>
-              <option value="10000">×10K (Kuning)</option>
-              <option value="100000">×100K (Hijau)</option>
-              <option value="1000000">×1M (Biru)</option>
-              <option value="10000000">×10M (Ungu)</option>
-              <option value="100000000">×100M (Abu-abu)</option>
-              <option value="1000000000">×1G (Putih)</option>
-            </select>
-          </div>
+        <!-- Pilih Jumlah Pita -->
+        <div>
+          <label class="block font-medium mb-1">Jumlah Pita</label>
+          <select id="jumlahPita" class="w-full border rounded px-3 py-2">
+            <option value="3">3 Pita</option>
+            <option value="4">4 Pita</option>
+            <option value="5">5 Pita</option>
+          </select>
         </div>
 
-        <!-- Tombol dan Hasil -->
+        <!-- Wrapper Input Warna -->
+        <div id="inputWarna" class="grid md:grid-cols-3 gap-4 items-center">
+          <!-- Input akan dimuat dinamis lewat JS -->
+        </div>
+
+        <!-- Tombol & Hasil -->
         <div class="mt-4 space-y-3">
           <button onclick="hitungResistor()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Hitung Nilai Resistor</button>
 
+          <div class="bg-yellow-100 border border-yellow-400 text-yellow-800 text-sm p-3 rounded">
+            <strong>Rumus Umum:</strong> <br />
+            - 3 Pita: (Pita1×10 + Pita2) × Pengali <br />
+            - 4/5 Pita: (Pita1×10 + Pita2 + [Pita3 jika 5 pita]) × Pengali ± Toleransi
+          </div>
           <!-- Keterangan Rumus -->
           <div class="bg-yellow-100 border border-yellow-400 text-yellow-800 text-sm p-3 rounded">
             <strong>Rumus:</strong> (Angka Pita 1 × 10 + Angka Pita 2) × Pengali <br />
-            Contoh: Cokelat (1), Merah (2), Oranye (×1000) → (1×10 + 2) × 1000 = <strong>12.000 Ω (12 KΩ)</strong>
+            <strong>Contoh:</strong> Cokelat (1), Merah (2), Oranye (×1000), Emas (±5%) → (1×10 + 2) × 1000 = <strong>12.000 Ω ±5%</strong>
           </div>
 
-          <!-- Hasil -->
           <p id="hasil" class="font-semibold text-green-600 text-lg"></p>
         </div>
       </section>
@@ -472,120 +441,6 @@
     </footer>
 
     <script>
-      // Logika Rangkaian Seri & Parelel
-      const jumlahInput = document.getElementById("jumlahResistor");
-      const resistorContainer = document.getElementById("resistorInputs");
-      const hasilRtotal = document.getElementById("hasilRtotal");
-      const hasilArusR = document.getElementById("hasilArus");
-      const visualResistor = document.getElementById("visualResistor");
-
-      let chart; // Chart.js object
-
-      jumlahInput.addEventListener("input", updateInputFields);
-      document.querySelectorAll("input[name='jenisRangkaian']").forEach((radio) => radio.addEventListener("change", hitungSimulasi));
-
-      function updateInputFields() {
-        const jumlah = parseInt(jumlahInput.value);
-        resistorContainer.innerHTML = "";
-        visualResistor.innerHTML = "";
-
-        for (let i = 0; i < jumlah; i++) {
-          const div = document.createElement("div");
-          div.innerHTML = `
-            <label class="block text-sm text-gray-700 mb-1">Resistor ${i + 1} (Ω):</label>
-            <input type="number" min="0.1" step="0.1" class="resistorInput w-full border p-2 rounded" value="10" />
-          `;
-          resistorContainer.appendChild(div);
-        }
-
-        // ⬇ Tambahkan event listener ke setiap input resistor yang baru dibuat
-        document.querySelectorAll(".resistorInput").forEach((input) => {
-          input.addEventListener("input", hitungSimulasi);
-        });
-
-        hitungSimulasi();
-      }
-
-      function hitungSimulasi() {
-        const jenis = document.querySelector("input[name='jenisRangkaian']:checked").value;
-        const resistors = [...document.querySelectorAll(".resistorInput")].map((input) => parseFloat(input.value));
-        const V_total = 12; // Tegangan sumber default
-        let R_total = 0;
-        let arus = 0;
-        let arusPerResistor = [];
-        let teganganPerResistor = [];
-
-        if (jenis === "seri") {
-          R_total = resistors.reduce((a, b) => a + b, 0);
-          arus = V_total / R_total;
-          arusPerResistor = resistors.map(() => arus);
-          teganganPerResistor = resistors.map((R) => arus * R);
-        } else {
-          R_total = 1 / resistors.reduce((acc, R) => acc + 1 / R, 0);
-          arus = V_total / R_total;
-          teganganPerResistor = resistors.map(() => V_total);
-          arusPerResistor = resistors.map((R) => V_total / R);
-        }
-
-        hasilRtotal.textContent = R_total.toFixed(2);
-        hasilArusR.textContent = arus.toFixed(2);
-
-        updateChart(jenis === "seri" ? teganganPerResistor : arusPerResistor, jenis);
-        updateVisualResistor(resistors.length);
-      }
-
-      function updateChart(data, jenis) {
-        const label = jenis === "seri" ? "Tegangan per Resistor (V)" : "Arus per Resistor (A)";
-        const labels = data.map((_, i) => `R${i + 1}`);
-
-        const config = {
-          type: "bar",
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                label: label,
-                data: data,
-                backgroundColor: "rgba(59,130,246,0.6)",
-                borderColor: "rgba(59,130,246,1)",
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: jenis === "seri" ? "Volt (V)" : "Ampere (A)",
-                },
-              },
-            },
-          },
-        };
-
-        if (chart) chart.destroy();
-        const ctx = document.getElementById("grafikSimulasi").getContext("2d");
-        chart = new Chart(ctx, config);
-      }
-
-      function updateVisualResistor(jumlah) {
-        visualResistor.innerHTML = "";
-        for (let i = 0; i < jumlah; i++) {
-          visualResistor.innerHTML += `
-              <div class="flex items-center gap-2">
-                <div class="w-4 h-1 bg-gray-500"></div>
-                <div class="w-12 h-6 bg-yellow-400 border border-gray-700 rounded text-center text-xs flex items-center justify-center">R${i + 1}</div>
-                <div class="w-4 h-1 bg-gray-500"></div>
-              </div>`;
-        }
-      }
-
-      // Inisialisasi awal
-      updateInputFields();
-
       function hitungManualOhm() {
         const V = parseFloat(document.getElementById("inputTegangan").value);
         const R = parseFloat(document.getElementById("inputResistansi").value);
@@ -611,30 +466,181 @@
       }
 
       function hitungResistor() {
-        const band1 = parseInt(document.getElementById("band1").value);
-        const band2 = parseInt(document.getElementById("band2").value);
-        const multiplier = parseInt(document.getElementById("multiplier").value);
+        const jumlah = parseInt(document.getElementById("jumlahPita").value);
+        const b1 = parseInt(document.getElementById("band1").value);
+        const b2 = parseInt(document.getElementById("band2").value);
+        const mult = parseInt(document.getElementById("multiplier").value);
         const hasilElement = document.getElementById("hasil");
 
-        // Hitung nilai resistor
-        const nilai = (band1 * 10 + band2) * multiplier;
-
-        // Konversi ke satuan ohm dengan notasi yang enak dibaca
+        let nilai = 0;
         let tampil = "";
-        if (nilai >= 1_000_000_000) {
-          tampil = (nilai / 1_000_000_000).toFixed(2) + " GΩ";
-        } else if (nilai >= 1_000_000) {
-          tampil = (nilai / 1_000_000).toFixed(2) + " MΩ";
-        } else if (nilai >= 1_000) {
-          tampil = (nilai / 1_000).toFixed(2) + " KΩ";
-        } else {
-          tampil = nilai + " Ω";
+        let tolerance = "";
+
+        if (jumlah === 3) {
+          nilai = (b1 * 10 + b2) * mult;
+        } else if (jumlah === 4) {
+          const tol = document.getElementById("tolerance").value;
+          nilai = (b1 * 10 + b2) * mult;
+          tolerance = " " + tol;
+        } else if (jumlah === 5) {
+          const b3 = parseInt(document.getElementById("band3").value);
+          const tol = document.getElementById("tolerance").value;
+          nilai = (b1 * 100 + b2 * 10 + b3) * mult;
+          tolerance = " " + tol;
         }
 
-        // Tampilkan hasil
-        hasilElement.textContent = `Nilai Resistor: ${tampil}`;
+        if (nilai >= 1_000_000_000) tampil = (nilai / 1_000_000_000).toFixed(2) + " GΩ";
+        else if (nilai >= 1_000_000) tampil = (nilai / 1_000_000).toFixed(2) + " MΩ";
+        else if (nilai >= 1_000) tampil = (nilai / 1_000).toFixed(2) + " KΩ";
+        else tampil = nilai + " Ω";
+
+        hasilElement.textContent = `Nilai Resistor: ${tampil}${tolerance}`;
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const jumlahPita = document.getElementById("jumlahPita");
+        const inputWarna = document.getElementById("inputWarna");
+
+        const warna = ["Hitam", "Cokelat", "Merah", "Oranye", "Kuning", "Hijau", "Biru", "Ungu", "Abu-abu", "Putih"];
+        const multiplier = [
+          { label: "×1 (Hitam)", value: 1 },
+          { label: "×10 (Cokelat)", value: 10 },
+          { label: "×100 (Merah)", value: 100 },
+          { label: "×1K (Oranye)", value: 1000 },
+          { label: "×10K (Kuning)", value: 10000 },
+          { label: "×100K (Hijau)", value: 100000 },
+          { label: "×1M (Biru)", value: 1000000 },
+          { label: "×10M (Ungu)", value: 10000000 },
+          { label: "×100M (Abu-abu)", value: 100000000 },
+          { label: "×1G (Putih)", value: 1000000000 },
+        ];
+        const toleransi = [
+          { label: "±1% (Cokelat)", value: "±1%" },
+          { label: "±2% (Merah)", value: "±2%" },
+          { label: "±0.5% (Hijau)", value: "±0.5%" },
+          { label: "±0.25% (Biru)", value: "±0.25%" },
+          { label: "±0.1% (Ungu)", value: "±0.1%" },
+          { label: "±5% (Emas)", value: "±5%" },
+          { label: "±10% (Perak)", value: "±10%" },
+          { label: "±20% (Tanpa Pita)", value: "±20%" },
+        ];
+
+        const buatSelect = (label, id, data, isObject = false) => {
+          const selectHTML = `
+            <label class="block font-medium mb-1">${label}</label>
+            <select id="${id}" class="w-full border rounded px-3 py-2">
+              ${data.map((val, i) => (isObject ? `<option value="${val.value}">${val.label}</option>` : `<option value="${i}">${val}</option>`)).join("")}
+            </select>
+          `;
+          const div = document.createElement("div");
+          div.innerHTML = selectHTML;
+          inputWarna.appendChild(div);
+        };
+
+        const tampilkanInput = () => {
+          const jumlah = parseInt(jumlahPita.value);
+          inputWarna.innerHTML = "";
+
+          // Semua pita warna diubah pakai value = indeks
+          const warnaObj = warna.map((w, i) => ({ label: w, value: i }));
+
+          buatSelect("Pita 1 (Angka Pertama)", "band1", warnaObj, true);
+          buatSelect("Pita 2 (Angka Kedua)", "band2", warnaObj, true);
+
+          if (jumlah === 5) {
+            buatSelect("Pita 3 (Angka Ketiga)", "band3", warnaObj, true);
+            buatSelect("Pita 4 (Pengali)", "multiplier", multiplier, true);
+            buatSelect("Pita 5 (Toleransi)", "tolerance", toleransi, true);
+          } else if (jumlah === 4) {
+            buatSelect("Pita 3 (Pengali)", "multiplier", multiplier, true);
+            buatSelect("Pita 4 (Toleransi)", "tolerance", toleransi, true);
+          } else {
+            buatSelect("Pita 3 (Pengali)", "multiplier", multiplier, true);
+          }
+        };
+
+        jumlahPita.addEventListener("change", tampilkanInput);
+        tampilkanInput(); // Munculkan langsung saat load
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const jumlahInput = document.getElementById("jumlahResistor");
+        const resistorContainer = document.getElementById("resistorInputs");
+        const hasilRtotal = document.getElementById("hasilRtotal");
+        const visualResistor = document.getElementById("visualResistor");
+
+        // Saat input jumlah resistor berubah
+        jumlahInput.addEventListener("input", updateInputFields);
+
+        // Saat jenis rangkaian dipilih ulang
+        document.querySelectorAll("input[name='jenisRangkaian']").forEach((radio) => {
+          radio.addEventListener("change", hitungSimulasi);
+        });
+
+        // Fungsi untuk menampilkan input resistor
+        function updateInputFields() {
+          const jumlah = parseInt(jumlahInput.value) || 0;
+          resistorContainer.innerHTML = "";
+          visualResistor.innerHTML = "";
+
+          for (let i = 0; i < jumlah; i++) {
+            const div = document.createElement("div");
+            div.innerHTML = `
+              <label class="block text-sm text-gray-700 mb-1">Resistor ${i + 1} (Ω):</label>
+              <input type="number" min="0.1" step="0.1" class="resistorInput w-full border p-2 rounded" value="10" />
+            `;
+            resistorContainer.appendChild(div);
+          }
+
+          // Tambahkan event saat nilai resistor diubah
+          document.querySelectorAll(".resistorInput").forEach((input) => {
+            input.addEventListener("input", hitungSimulasi);
+          });
+
+          hitungSimulasi();
+        }
+
+        // Fungsi utama perhitungan Rtotal
+        function hitungSimulasi() {
+          const jenis = document.querySelector("input[name='jenisRangkaian']:checked").value;
+          const resistorValues = [...document.querySelectorAll(".resistorInput")].map((input) => parseFloat(input.value));
+          let Rtotal = 0;
+
+          if (resistorValues.length === 0 || resistorValues.some((val) => isNaN(val) || val <= 0)) {
+            hasilRtotal.textContent = "-";
+            visualResistor.innerHTML = "";
+            return;
+          }
+
+          if (jenis === "seri") {
+            Rtotal = resistorValues.reduce((acc, val) => acc + val, 0);
+          } else {
+            Rtotal = 1 / resistorValues.reduce((acc, val) => acc + 1 / val, 0);
+          }
+
+          hasilRtotal.textContent = Rtotal.toFixed(2);
+          updateVisualResistor(resistorValues.length);
+        }
+
+        // Fungsi untuk tampilkan resistor visual
+        function updateVisualResistor(jumlah) {
+          visualResistor.innerHTML = "";
+          for (let i = 0; i < jumlah; i++) {
+            visualResistor.innerHTML += `
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-1 bg-gray-500"></div>
+                <div class="w-12 h-6 bg-yellow-400 border border-gray-700 rounded text-center text-xs flex items-center justify-center">R${i + 1}</div>
+                <div class="w-4 h-1 bg-gray-500"></div>
+              </div>
+            `;
+          }
+        }
+
+        // Panggil awal
+        updateInputFields();
+      });
     </script>
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </body>
 </html>
