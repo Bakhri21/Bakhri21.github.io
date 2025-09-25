@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poster Promosi Klan SAMSUNG - Clash of Clans</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        overflow: hidden; /* global scroll hidden */
+        font-family: "Montserrat", sans-serif;
+        background: url("clash_of_clans-1280x720.jpg") center/cover no-repeat fixed;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+      .title {
+        font-family: "Cinzel", serif;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+      }
+
+      .poster-container {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+        max-width: 700px;
+        width: 100%;
+        font-family: "Montserrat", sans-serif;
+        max-height: 40vh; /* batasi tinggi grid supaya logo & slogan tetap terlihat */
+        overflow-y: auto; /* scroll hanya di grid */
+        padding-right: 4px; /* supaya scroll bar tidak menabrak card */
+      }
+
+      .details-grid::-webkit-scrollbar {
+        width: 6px;
+      }
+      .details-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 215, 0, 0.6);
+        border-radius: 3px;
+      }
+
+      .detail-card {
+        padding: 12px;
+        border-radius: 10px;
+        text-align: center;
+        background: rgb(216, 216, 216);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex-shrink: 0; /* jangan mengecil saat scroll */
+      }
+
+      .icon-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ca8a04; /* kuning gelap */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .shield-logo {
+        width: 150px;
+        height: 150px;
+        background: #000;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        position: relative;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        animation: pulse 2s infinite;
+      }
+
+      .flame-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: #ffd700;
+        animation: flicker 2s infinite alternate;
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+          opacity: 0.85;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .glow-effect {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+      }
+
+      .btn-join {
+        position: relative;
+        display: inline-block;
+        padding: 10px 30px;
+        background: linear-gradient(#54b32e, #54aa2c);
+        color: white;
+        font-family: "Luckiest Guy", sans-serif;
+        font-size: 1.5rem;
+        text-align: center;
+        border: 3px solid black;
+        border-radius: 15px;
+        text-shadow: 2px 2px 0px #000;
+        box-shadow: inset 0px 2px 3px 0px white;
+        transition: transform 0.1s ease;
+        z-index: 0; /* penting biar pseudo bisa di bawah teks */
+      }
+
+      .btn-join::before {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        left: 2.5%;
+        width: 95%;
+        height: 45%;
+        background: rgba(162, 250, 91, 0.6);
+        border-radius: 7px;
+        z-index: -1; /* dorong ke bawah teks tapi masih di atas background */
+      }
+
+      .btn-join:active {
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="poster-container">
+      <!-- Judul -->
+      <div class="mb-4">
+        <h1 class="title text-5xl md:text-7xl font-bold uppercase tracking-wide">SAMSUNG</h1>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex-1 flex items-center justify-center mb-4">
+        <div class="shield-logo">
+          <i class="fas fa-fire flame-icon"></i>
+        </div>
+      </div>
+
+      <!-- Detail Clan -->
+      <div class="details-grid mb-4">
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-hashtag"></i></div>
+          <strong>Tag:</strong> #2Q0L8J09U
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-level-up-alt"></i></div>
+          <strong>Level Klan:</strong> 9
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-users"></i></div>
+          <strong>Anggota:</strong> 18/50
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-calendar"></i></div>
+          <strong>Dibuat pada:</strong> 03 - 09 - 2022
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-home"></i></div>
+          <strong>Balai Kota Min:</strong> 11
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-trophy"></i></div>
+          <strong>Trofi Desa Asal:</strong> 3000
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-trophy"></i></div>
+          <strong>Trofi Builder:</strong> 2000
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-medal"></i></div>
+          <strong>Liga Perang:</strong> Liga Perak I
+        </div>
+        <div class="detail-card">
+          <div class="icon-badge"><i class="fas fa-globe"></i></div>
+          <strong>Lokasi:</strong> Indonesia<br />
+          <strong>Bahasa:</strong> Indonesia
+        </div>
+      </div>
+
+      <!-- Slogan -->
+      <!-- <div class="w-full pb-2">
+        <p class="text-xl md:text-2xl font-semibold text-white italic glow-effect">🔥 Bergabunglah dengan kami sekarang dan buktikan kekuatanmu! 🔥</p>
+      </div> -->
+
+      <!-- Link Clan -->
+      <!-- <div class="w-full pb-2">
+        <a
+          href="https://link.clashofclans.com/id?action=OpenClanProfile&tag=2Q0L8J09U"
+          target="_blank"
+          class="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-5 py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+        >
+          <i class="fas fa-hand-point-up"></i>
+          Gabung Clan Sekarang
+        </a>
+        <p class="text-sm text-gray-300 mt-1">*Link akan langsung membuka profil Clan di Clash of Clans</p>
+      </div> -->
+      <!-- Tombol Join -->
+      <div class="w-full pb-2">
+        <a href="https://link.clashofclans.com/id?action=OpenClanProfile&tag=2Q0L8J09U" target="_blank" class="btn-join">
+          <i class="fas fa-hand-point-up"></i>
+          Join Clan
+        </a>
+        <p class="text-sm text-gray-300 mt-2">*Akan membuka profil clan COC</p>
+      </div>
+    </div>
+  </body>
+</html>
