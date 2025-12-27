@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Company Profile",
+    "description": "Website Company Profile Berlian Teknik Nusantara - Supplier kabel listrik berkualitas Bekasi",
+    "year": "2023",
+    "image": "src/img/Project-1.PNG",
+    "tech": ["HTML", "CSS", "JavaScript", "PHP"],
+    "github": "https://github.com/Bakhri21",
+    "demo": "https://berlianteknus.co.id"
+  },
+  {
+    "title": "Web Edukasi",
+    "description": "Website tugas kuliah - Pelajari hukum Faraday dengan simulasi yang menarik.",
+    "year": "2025",
+    "image": "src/img/Project-2.PNG",
+    "tech": ["HTML", "Tailwind", "JavaScript"],
+    "github": "https://github.com/Bakhri21",
+    "demo": "https://bakhri21.github.io/Induksi-Magnet/"
+  },
+  {
+    "title": "Web Edukasi",
+    "description": "Website tugas kuliah - Memahami dasar-dasar listrik searah (DC) secara interaktif.",
+    "year": "2025",
+    "image": "src/img/Project-3.PNG",
+    "tech": ["HTML", "Tailwind", "JavaScript"],
+    "github": "https://github.com/Bakhri21",
+    "demo": "https://bakhri21.github.io/Rangkaian-Searah/"
+  }
+]
